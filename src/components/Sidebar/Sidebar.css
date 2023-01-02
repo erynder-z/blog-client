@@ -1,3 +1,4 @@
 .sidebar {
   background-color: var(--sidebar);
+  /*   min-height: 100%; */
 }
