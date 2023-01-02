@@ -1,22 +1,10 @@
 import React, { useEffect, useState } from 'react';
+import { IPost } from '../../../Interfaces/Post';
+import PostItem from '../PostItem/PostItem';
 import './AllPosts.css';
 
-type Post = {
-  _id: String;
-  author: String;
-  title: String;
-  text: String;
-  timestamp: Date;
-  image: {
-    data: Buffer;
-    contentType: String;
-  };
-  tags: String[];
-  comments: String[];
-};
-
 export default function AllPosts() {
-  const [posts, setPosts] = useState<Post[]>([]);
+  const [posts, setPosts] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -46,9 +34,8 @@ export default function AllPosts() {
   return (
     <main className="main">
       {posts?.map((post) => (
-        <div key={post._id.toString()} className="post">
-          <h2 className="post-title">{post.title}</h2>
-          <p className="post-text">{post.text}</p>
+        <div key={post._id.toString()} className="post-container">
+          <PostItem postData={post} />
         </div>
       ))}
     </main>
