@@ -32,7 +32,7 @@ export default function LatestPosts() {
   }
 
   return (
-    <main className="main">
+    <main className="latest-posts-list">
       {posts?.map((post) => (
         <div key={post._id.toString()} className="post-container">
           <PostItem postData={post} />

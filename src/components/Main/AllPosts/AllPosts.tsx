@@ -32,7 +32,7 @@ export default function AllPosts() {
   }
 
   return (
-    <main className="main">
+    <main className="all-posts-list">
       {posts?.map((post) => (
         <div key={post._id.toString()} className="post-container">
           <PostItem postData={post} />
