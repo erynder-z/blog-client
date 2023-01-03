@@ -1,0 +1,22 @@
+.post_page {
+  max-width: 70ch;
+  padding: 3em 1em;
+  margin: auto;
+}
+
+.post_title {
+  margin-top: 1rem;
+}
+
+.tag-list {
+  display: flex;
+  gap: 1rem;
+  list-style: none;
+  padding: 0;
+}
+
+.tag-list-item {
+  font-size: 0.6em;
+  background-color: var(--tag_background);
+  padding: 0 1rem;
+}
