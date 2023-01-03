@@ -1,16 +1,16 @@
 export interface IPost {
-  _id: String;
+  _id: string;
   author: {
     username: string;
     _id: string;
   };
-  title: String;
-  text: String;
+  title: string;
+  text: string;
   timestamp: Date;
   image: {
     data: Buffer;
-    contentType: String;
+    contentType: string;
   };
-  tags: String[];
-  comments: String[];
+  tags: string[];
+  comments: string[];
 }
