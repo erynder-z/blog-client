@@ -1,0 +1,10 @@
+.about {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem;
+  padding-top: 1rem;
+}
+
+.about h1 {
+  font-size: 1.2em;
+}
