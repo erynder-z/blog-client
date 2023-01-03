@@ -12,9 +12,6 @@ export default function Navbar() {
         <a href="/latest" className="nav-list-item">
           Latest
         </a>
-        <a href="/tags" className="nav-list-item">
-          Tags
-        </a>
         <a href="/about" className="nav-list-item">
           About
         </a>

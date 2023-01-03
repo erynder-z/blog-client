@@ -1,6 +1,6 @@
 .navbar {
   background-color: var(--nav);
-  /*   max-width: 70ch; */
+  /* max-width: 70ch; */
   padding: 1em;
 }
 
@@ -14,4 +14,8 @@
 .nav-list {
   display: flex;
   justify-content: space-evenly;
+}
+
+.nav-list a {
+  color: var(--text_bright);
 }
