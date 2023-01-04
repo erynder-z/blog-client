@@ -1,3 +1,5 @@
+import { IComment } from './Comment';
+
 export interface IPost {
   _id: string;
   author: {
@@ -12,5 +14,5 @@ export interface IPost {
     contentType: string;
   };
   tags: string[];
-  comments: string[];
+  comments: IComment[];
 }
