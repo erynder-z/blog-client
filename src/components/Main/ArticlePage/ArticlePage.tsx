@@ -13,19 +13,19 @@ export default function ArticlePage() {
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
-  useEffect(() => {
-    const fetchArticle = async () => {
-      try {
-        const res = await fetch(`http://localhost:8000/api/posts/${id}`);
-        const data = await res.json();
-        setArticle(data.post);
-      } catch (err: any) {
-        setError(err);
-      }
-      setLoading(false);
-    };
+  const fetchArticleData = async () => {
+    try {
+      const res = await fetch(`http://localhost:8000/api/posts/${id}`);
+      const data = await res.json();
+      setArticle(data.post);
+    } catch (err: any) {
+      setError(err);
+    }
+    setLoading(false);
+  };
 
-    fetchArticle();
+  useEffect(() => {
+    fetchArticleData();
   }, [id]);
 
   if (loading) {
@@ -56,8 +56,10 @@ export default function ArticlePage() {
 
         <p>{article?.text}</p>
 
-        {article && <CommentsSection commentList={article.comments} />}
-        {!article && <CommentsSection commentList={[]} />}
+        {article && (
+          <CommentsSection commentList={article.comments} fetchArticleData={fetchArticleData} />
+        )}
+        {!article && <CommentsSection commentList={[]} fetchArticleData={fetchArticleData} />}
       </div>
     </main>
   );
