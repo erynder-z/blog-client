@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { IPost } from '../../../Interfaces/Post';
-import PostItem from '../PostItem/PostItem';
+import PostItem from '../PostPreview/PostPreview';
 import './AllPosts.css';
 
 export default function AllPosts() {

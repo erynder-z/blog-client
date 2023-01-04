@@ -1,6 +1,6 @@
 import React from 'react';
 import format from 'date-fns/format';
-import './PostItem.css';
+import './PostPreview.css';
 import { IPost } from '../../../Interfaces/Post';
 import { FaArrowRight, FaRegCommentAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
@@ -9,7 +9,7 @@ interface Props {
   postData: IPost;
 }
 
-export default function PostItem({ postData }: Props) {
+export default function PostPreview({ postData }: Props) {
   const { _id, author, title, text, timestamp, image, tags, comments } = postData;
 
   const getTextExcerpt = (text: string) => {
