@@ -12,17 +12,21 @@ interface Props {
 export default function PostPreview({ postData }: Props) {
   const { _id, author, title, text, timestamp, image, tags, comments } = postData;
 
+  const getTitleExcerpt = (title: string) => {
+    return title.substring(0, 100) + '...';
+  };
+
   const getTextExcerpt = (text: string) => {
-    return text.substring(0, 40) + '...';
+    return text.substring(0, 75) + '...';
   };
 
   return (
     <Link to={`/post/${_id}`} className="post">
       <div className="post-top">
         <div className="post-head">
-          <div className="timestamp">{format(new Date(timestamp), 'EEEE, dd. MMMM yyyy')}</div>
-          <h1 className="post-title">{title}</h1>
-          <div className="author">by {author?.username}</div>
+          <div className="timestamp">{format(new Date(timestamp), 'EEEE, dd. MMMM yyyy')}</div>{' '}
+          {/*   <div className="author">by {author?.username}</div> */}
+          <h1 className="post-title">{getTitleExcerpt(title)}</h1>
         </div>
         <p className="post-text">{getTextExcerpt(text)}</p>
       </div>

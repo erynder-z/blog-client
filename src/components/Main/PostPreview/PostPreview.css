@@ -18,10 +18,17 @@
 
 .post:hover .read_more {
   transform: scale(1.1);
+  color: var(--text_bright);
+}
+
+.post:hover .timestamp,
+.post:hover .post-text {
+  color: inherit;
 }
 
 .timestamp {
   font-size: 0.6em;
+  color: var(--text_grey);
 }
 
 .post-title {
@@ -32,12 +39,14 @@
 
 .author {
   font-size: 0.6em;
+  color: var(--text_grey);
 }
 
 .post-text {
   max-width: 100%;
   word-wrap: break-word;
   font-size: 0.75em;
+  color: var(--text_grey);
 }
 
 .post-bottom {
@@ -55,6 +64,6 @@
   align-items: center;
   margin-left: auto;
   gap: 0.6em;
-  color: var(--text_bright);
+  color: var(--text_grey);
   transition: all 0.3s ease-in-out;
 }
