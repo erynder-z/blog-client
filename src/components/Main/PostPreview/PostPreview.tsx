@@ -10,14 +10,14 @@ interface Props {
 }
 
 export default function PostPreview({ postData }: Props) {
-  const { _id, author, title, text, timestamp, image, tags, comments } = postData;
+  const { _id, title, text, timestamp, comments } = postData;
 
   const getTitleExcerpt = (title: string) => {
-    return title.substring(0, 100) + '...';
+    return title.length >= 100 ? title.substring(0, 100) + '...' : title;
   };
 
   const getTextExcerpt = (text: string) => {
-    return text.substring(0, 75) + '...';
+    return text.length >= 100 ? text.substring(0, 100) + '...' : text;
   };
 
   return (
@@ -25,7 +25,6 @@ export default function PostPreview({ postData }: Props) {
       <div className="post-top">
         <div className="post-head">
           <div className="timestamp">{format(new Date(timestamp), 'EEEE, dd. MMMM yyyy')}</div>{' '}
-          {/*   <div className="author">by {author?.username}</div> */}
           <h1 className="post-title">{getTitleExcerpt(title)}</h1>
         </div>
         <p className="post-text">{getTextExcerpt(text)}</p>
