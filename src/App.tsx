@@ -10,7 +10,16 @@ import ArticlePage from './components/Main/ArticlePage/ArticlePage';
 import { ITag } from './Interfaces/Tag';
 
 function App() {
-  const [activeTag, setActiveTag] = useState<ITag | null>(null);
+  const [filter, setFilter] = useState<ITag | string | null>(null);
+
+  const handleTagFilter = (tag: ITag) => {
+    setFilter(tag);
+  };
+
+  const handleSearch = (query: string) => {
+    setFilter(query);
+  };
+
   return (
     <div className="app-container">
       <div className="main-container">
@@ -20,8 +29,8 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Navigate replace to="/latest" />} />
-            <Route path="/all" element={<AllPosts activeTag={activeTag} />} />
-            <Route path="/latest" element={<LatestPosts activeTag={activeTag} />} />
+            <Route path="/all" element={<AllPosts filter={filter} />} />
+            <Route path="/latest" element={<LatestPosts filter={filter} />} />
             <Route path="/about" element={<About />} />
             <Route path="/post/:id" element={<ArticlePage />} />
           </Routes>
@@ -29,7 +38,7 @@ function App() {
       </div>
       <aside>
         <div className="side-container">
-          <Sidebar setActiveTag={setActiveTag} />
+          <Sidebar handleTagFilter={handleTagFilter} handleSearch={handleSearch} />
         </div>
       </aside>
     </div>

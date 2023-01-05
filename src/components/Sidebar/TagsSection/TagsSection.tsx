@@ -3,10 +3,10 @@ import { ITag } from '../../../Interfaces/Tag';
 import './TagSection.css';
 
 interface Props {
-  setActiveTag: Dispatch<SetStateAction<ITag | null>>;
+  handleTagFilter: (tag: ITag) => void;
 }
 
-export default function TagsSection({ setActiveTag }: Props) {
+export default function TagsSection({ handleTagFilter }: Props) {
   const [tagList, setTagList] = useState<ITag[]>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -43,7 +43,7 @@ export default function TagsSection({ setActiveTag }: Props) {
             key={tag._id.toString()}
             className="side-tag-list-item"
             onClick={() => {
-              setActiveTag(tag);
+              handleTagFilter(tag);
             }}>
             {tag.name}
           </li>

@@ -5,10 +5,10 @@ import PostItem from '../PostPreview/PostPreview';
 import './LatestPosts.css';
 
 interface Props {
-  activeTag: ITag | null;
+  filter: ITag | string | null;
 }
 
-export default function LatestPosts({ activeTag }: Props) {
+export default function LatestPosts({ filter }: Props) {
   const [activePostList, setActivePostList] = useState<IPost[]>([]);
   const [fullPostList, setFullPostList] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(true);
@@ -31,16 +31,24 @@ export default function LatestPosts({ activeTag }: Props) {
   }, []);
 
   useEffect(() => {
-    const getFilterPosts = (activeTag: ITag | null) => {
-      const filteredPosts = fullPostList.filter((post) =>
-        post?.tags?.some((tag) => tag._id == activeTag?._id)
-      );
-
-      return filteredPosts;
+    const filterForString = (filter: string) => {
+      return fullPostList.filter((post) => {
+        return post.title.includes(filter) || post.text.includes(filter);
+      });
     };
 
-    setActivePostList(getFilterPosts(activeTag));
-  }, [activeTag]);
+    const filterForTag = (filter: ITag) => {
+      return fullPostList.filter((post) => post?.tags?.some((tag) => tag._id == filter?._id));
+    };
+
+    const getFilterPosts = (filter: ITag | string | null) => {
+      return typeof filter === 'string'
+        ? filterForString(filter as string)
+        : filterForTag(filter as ITag);
+    };
+
+    setActivePostList(getFilterPosts(filter));
+  }, [filter]);
 
   if (loading) {
     return <p>Loading...</p>;

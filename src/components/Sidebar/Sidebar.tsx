@@ -1,16 +1,19 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { ITag } from '../../Interfaces/Tag';
+import SearchSection from './SearchSection/SearchSection';
 import './Sidebar.css';
 import TagsSection from './TagsSection/TagsSection';
 
 interface Props {
-  setActiveTag: Dispatch<SetStateAction<ITag | null>>;
+  handleTagFilter: (tag: ITag) => void;
+  handleSearch: (query: string) => void;
 }
 
-export default function Sidebar({ setActiveTag }: Props) {
+export default function Sidebar({ handleTagFilter, handleSearch }: Props) {
   return (
     <div className="sidebar">
-      <TagsSection setActiveTag={setActiveTag} />
+      <TagsSection handleTagFilter={handleTagFilter} />{' '}
+      <SearchSection handleSearch={handleSearch} />
     </div>
   );
 }
