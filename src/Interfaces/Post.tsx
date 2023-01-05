@@ -1,4 +1,5 @@
 import { IComment } from './Comment';
+import { ITag } from './Tag';
 
 export interface IPost {
   _id: string;
@@ -13,6 +14,6 @@ export interface IPost {
     data: Buffer;
     contentType: string;
   };
-  tags: string[];
+  tags: ITag[];
   comments: IComment[];
 }
