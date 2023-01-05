@@ -1,10 +1,16 @@
 import React, { useEffect, useState } from 'react';
 import { IPost } from '../../../Interfaces/Post';
+import { ITag } from '../../../Interfaces/Tag';
 import PostItem from '../PostPreview/PostPreview';
 import './LatestPosts.css';
 
-export default function LatestPosts() {
-  const [posts, setPosts] = useState<IPost[]>([]);
+interface Props {
+  activeTag: ITag | null;
+}
+
+export default function LatestPosts({ activeTag }: Props) {
+  const [activePostList, setActivePostList] = useState<IPost[]>([]);
+  const [fullPostList, setFullPostList] = useState<IPost[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
@@ -13,7 +19,8 @@ export default function LatestPosts() {
       try {
         const res = await fetch('http://localhost:8000/api/posts/latest');
         const data = await res.json();
-        setPosts(data.post_list);
+        setActivePostList(data.post_list);
+        setFullPostList(data.post_list);
       } catch (err: any) {
         setError(err);
       }
@@ -22,6 +29,18 @@ export default function LatestPosts() {
 
     fetchPosts();
   }, []);
+
+  useEffect(() => {
+    const getFilterPosts = (activeTag: ITag | null) => {
+      const filteredPosts = fullPostList.filter((post) =>
+        post?.tags?.some((tag) => tag._id == activeTag?._id)
+      );
+
+      return filteredPosts;
+    };
+
+    setActivePostList(getFilterPosts(activeTag));
+  }, [activeTag]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -33,7 +52,7 @@ export default function LatestPosts() {
 
   return (
     <main className="latest-posts-list">
-      {posts?.map((post) => (
+      {activePostList?.map((post) => (
         <div key={post._id.toString()} className="post-container">
           <PostItem postData={post} />
         </div>
