@@ -1,4 +1,4 @@
-@import url('https://fonts.googleapis.com/css2?family=Ubuntu:wght@300;400;500;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu:ital,wght@0,400;0,500;0,700;1,400;1,500;1,700&display=swap');
 
 :root {
   font-family: 'Ubuntu', sans-serif, Inter, Avenir, Helvetica, Arial, sans-serif;
@@ -6,12 +6,18 @@
   line-height: 24px;
   font-weight: 400;
 
-  --background_dark: #51469b;
-  --text_bright: #c9d487;
-  --nav: #6b60b5;
-  --sidebar: #571d14;
-  --blogpost_card_background: #6b60b5;
-  --tag_background: #9f4e44;
+  --background_dark: #001c30;
+  --background_bright: #f6f6f6;
+  --text_bright: #f6f6f6;
+  --text_dark: #001b2e;
+  --text_grey: #707070;
+  --nav: #f6f6f6;
+  --sidebar: #f6f6f6;
+  --blogpost_card_background: #f6f6f6;
+  --tag_background: #cd3c00;
+  --button: #003b5e;
+  --hover: #0071af;
+  --highlight: #d2008f;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -44,7 +50,11 @@ h1 {
 }
 
 button {
-  border-radius: 8px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+  border-radius: 4px;
   border: 1px solid transparent;
   padding: 0.6em 1.2em;
   font-size: 1em;
@@ -53,11 +63,19 @@ button {
   background-color: #1a1a1a;
   cursor: pointer;
   transition: border-color 0.25s;
+  background-color: var(--button);
+  color: var(--text_bright);
 }
 button:hover {
-  border-color: #646cff;
+  background-color: var(--hover);
+  border-color: var(--hover);
 }
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
+}
+
+::selection {
+  color: var(--text_bright);
+  background: var(--highlight);
 }

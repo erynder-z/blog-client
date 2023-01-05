@@ -1,7 +1,9 @@
 .navbar {
   background-color: var(--nav);
+  color: var(--text_dark);
   /* max-width: 70ch; */
   padding: 1em;
+  border-radius: 4px;
 }
 
 .nav-title {
@@ -17,5 +19,5 @@
 }
 
 .nav-list a {
-  color: var(--text_bright);
+  color: var(--text_dark);
 }

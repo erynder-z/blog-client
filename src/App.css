@@ -21,6 +21,7 @@ nav {
   display: flex;
   flex-direction: column;
   max-width: 70ch;
+  min-width: 70ch;
   min-height: 100%;
   padding: 3em 1em;
   margin: auto;
@@ -36,7 +37,7 @@ nav {
   display: flex;
   flex-direction: column;
   max-width: 70ch;
-  padding: 3em 1em;
+  padding: 3em 3em 3em 0;
   margin: auto;
   line-height: 1.75;
   font-size: 1.25em;
@@ -49,6 +50,7 @@ nav {
 
   .main-container {
     padding: 0;
+    min-width: 0;
   }
 
   .side-container {
