@@ -2,6 +2,7 @@ import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
 import { IPost } from '../../../Interfaces/Post';
+import { ITag } from '../../../Interfaces/Tag';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
 
@@ -44,12 +45,9 @@ export default function ArticlePage() {
         <div className="author">by {article?.author?.username}</div>
         <h1 className="article_title">{article?.title}</h1>
         <ul className="tag-list">
-          {/*   <li className="tag-list-item">test</li>
-          <li className="tag-list-item">test2</li>
-          <li className="tag-list-item">test3</li> */}
-          {article?.tags?.map((tag) => (
-            <li key={tag.toString()} className="tag-list-item">
-              {tag}
+          {article?.tags?.map((tag: ITag) => (
+            <li key={tag._id.toString()} className="tag-list-item">
+              {tag.name}
             </li>
           ))}
         </ul>
