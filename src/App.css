@@ -41,6 +41,7 @@ nav {
   margin: auto;
   line-height: 1.75;
   font-size: 1.25em;
+  height: 100vh;
 }
 
 @media (max-width: 800px) {

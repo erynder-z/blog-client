@@ -21,6 +21,7 @@
 }
 
 .tag-list-item {
+  border-radius: 2px;
   font-size: 0.6em;
   background-color: var(--tag_background);
   color: var(--text_bright);
