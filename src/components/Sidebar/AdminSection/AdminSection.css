@@ -1,0 +1,12 @@
+.admin-container {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+}
+
+.adminBtn {
+  width: 100%;
+  margin-bottom: 1rem;
+  padding: 0.5em;
+  font-size: 0.75em;
+}

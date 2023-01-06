@@ -1,5 +1,6 @@
 import React, { Dispatch, SetStateAction } from 'react';
 import { ITag } from '../../Interfaces/Tag';
+import AdminSection from './AdminSection/AdminSection';
 import SearchSection from './SearchSection/SearchSection';
 import './Sidebar.css';
 import TagsSection from './TagsSection/TagsSection';
@@ -12,8 +13,9 @@ interface Props {
 export default function Sidebar({ handleTagFilter, handleSearch }: Props) {
   return (
     <div className="sidebar">
-      <TagsSection handleTagFilter={handleTagFilter} />{' '}
       <SearchSection handleSearch={handleSearch} />
+      <TagsSection handleTagFilter={handleTagFilter} />
+      <AdminSection />
     </div>
   );
 }
