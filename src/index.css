@@ -79,3 +79,9 @@ button:focus-visible {
   color: var(--text_bright);
   background: var(--highlight);
 }
+
+@media (max-width: 800px) {
+  h1 {
+    font-size: 2em;
+  }
+}

@@ -34,3 +34,9 @@
   display: block;
   margin: auto;
 }
+
+@media (max-width: 800px) {
+  .article_container {
+    padding: 0.5em;
+  }
+}
