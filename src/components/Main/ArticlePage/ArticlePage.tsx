@@ -52,6 +52,15 @@ export default function ArticlePage() {
           ))}
         </ul>
 
+        {article?.image && (
+          <img
+            src={`data:image/${article?.image.contentType};base64 ${article?.image.data.toString(
+              'base64'
+            )}`}
+            alt="article-image"
+            className="article_image"
+          />
+        )}
         <p>{article?.text}</p>
 
         {article && (
