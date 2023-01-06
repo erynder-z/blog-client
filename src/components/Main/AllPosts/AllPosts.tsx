@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { IPost } from '../../../Interfaces/Post';
-import { ITag } from '../../../Interfaces/Tag';
+import { IPost } from '../../../interfaces/Post';
+import { ITag } from '../../../interfaces/Tag';
 import PostItem from '../PostPreview/PostPreview';
 import './AllPosts.css';
 

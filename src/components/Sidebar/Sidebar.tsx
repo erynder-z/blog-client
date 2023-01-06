@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction } from 'react';
-import { ITag } from '../../Interfaces/Tag';
+import { ITag } from '../../interfaces/Tag';
 import AdminSection from './AdminSection/AdminSection';
 import SearchSection from './SearchSection/SearchSection';
 import './Sidebar.css';

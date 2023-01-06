@@ -1,6 +1,6 @@
 import React from 'react';
 import { format } from 'date-fns';
-import { IComment } from '../../../../Interfaces/Comment';
+import { IComment } from '../../../../interfaces/Comment';
 import './Comment.css';
 
 interface Props {

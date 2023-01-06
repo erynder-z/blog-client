@@ -1,8 +1,8 @@
 import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import { useParams } from 'react-router-dom';
-import { IPost } from '../../../Interfaces/Post';
-import { ITag } from '../../../Interfaces/Tag';
+import { IPost } from '../../../interfaces/Post';
+import { ITag } from '../../../interfaces/Tag';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
 

@@ -1,5 +1,5 @@
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { ITag } from '../../../Interfaces/Tag';
+import { ITag } from '../../../interfaces/Tag';
 import './TagSection.css';
 
 interface Props {

@@ -1,7 +1,7 @@
 import React from 'react';
 import format from 'date-fns/format';
 import './PostPreview.css';
-import { IPost } from '../../../Interfaces/Post';
+import { IPost } from '../../../interfaces/Post';
 import { FaArrowRight, FaRegCommentAlt } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 

@@ -7,7 +7,7 @@ import AllPosts from './components/Main/AllPosts/AllPosts';
 import LatestPosts from './components/Main/LatestPosts/LatestPosts';
 import About from './components/Main/About/About';
 import ArticlePage from './components/Main/ArticlePage/ArticlePage';
-import { ITag } from './Interfaces/Tag';
+import { ITag } from './interfaces/Tag';
 
 function App() {
   const [filter, setFilter] = useState<ITag | string | null>(null);

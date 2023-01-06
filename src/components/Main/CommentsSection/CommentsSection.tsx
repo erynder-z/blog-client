@@ -1,5 +1,5 @@
 import React, { useRef, useState } from 'react';
-import { IComment } from '../../../Interfaces/Comment';
+import { IComment } from '../../../interfaces/Comment';
 import Comment from './Comment/Comment';
 import { FaRegCommentAlt } from 'react-icons/fa';
 import './CommentsSection.css';
