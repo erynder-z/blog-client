@@ -44,6 +44,10 @@ nav {
   height: 100vh;
 }
 
+.sidebar_toggle {
+  display: none;
+}
+
 @media (max-width: 800px) {
   .app-container {
     grid-template-columns: 1fr;
@@ -58,7 +62,28 @@ nav {
     position: fixed;
     top: unset;
     right: unset;
-    bottom: 0;
-    padding: 0 1em;
+    bottom: -100%;
+    padding: 0;
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .side-container.active {
+    bottom: -0%;
+  }
+
+  .sidebar_toggle {
+    display: block;
+    height: 5rem;
+    color: var(--tag_background);
+    position: fixed;
+    top: 89%;
+    right: 50%;
+    z-index: 10;
+    transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
+  }
+
+  .sidebar_toggle.active {
+    top: 0;
+    transform: rotate(180deg);
   }
 }

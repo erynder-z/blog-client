@@ -8,9 +8,11 @@ import LatestPosts from './components/Main/LatestPosts/LatestPosts';
 import About from './components/Main/About/About';
 import ArticlePage from './components/Main/ArticlePage/ArticlePage';
 import { ITag } from './interfaces/Tag';
+import { FaAngleDoubleUp } from 'react-icons/fa';
 
 function App() {
   const [filter, setFilter] = useState<ITag | string | null>(null);
+  const [sidebarActive, setSidebarActive] = useState<boolean>(false);
 
   const handleTagFilter = (tag: ITag) => {
     setFilter(tag);
@@ -18,6 +20,10 @@ function App() {
 
   const handleSearch = (query: string) => {
     setFilter(query);
+  };
+
+  const toggleSidebarActive = () => {
+    setSidebarActive(!sidebarActive);
   };
 
   return (
@@ -37,7 +43,11 @@ function App() {
         </main>
       </div>
       <aside>
-        <div className="side-container">
+        <FaAngleDoubleUp
+          className={`sidebar_toggle ${sidebarActive ? 'active' : ''}`}
+          onClick={toggleSidebarActive}
+        />
+        <div className={`side-container ${sidebarActive ? 'active' : ''}`}>
           <Sidebar handleTagFilter={handleTagFilter} handleSearch={handleSearch} />
         </div>
       </aside>
