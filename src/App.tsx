@@ -39,6 +39,7 @@ function App() {
             <Route path="/latest" element={<LatestPosts filter={filter} />} />
             <Route path="/about" element={<About />} />
             <Route path="/post/:id" element={<ArticlePage />} />
+            <Route path="*" element={<p>There's nothing here: 404!</p>} />
           </Routes>
         </main>
       </div>
