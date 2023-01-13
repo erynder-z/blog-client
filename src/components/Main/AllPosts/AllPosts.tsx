@@ -47,7 +47,7 @@ export default function AllPosts({ filter }: Props) {
         : filterForTag(filter as ITag);
     };
 
-    setActivePostList(getFilterPosts(filter));
+    filter ? setActivePostList(getFilterPosts(filter)) : setActivePostList(fullPostList);
   }, [filter]);
 
   if (loading) {

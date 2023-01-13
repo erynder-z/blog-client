@@ -23,6 +23,10 @@ export default function TagsSection({ handleTagFilter }: Props) {
     setLoading(false);
   };
 
+  const handleTagClick = (tag: ITag) => {
+    tag !== activeTag ? setActiveTag(tag) : setActiveTag(null);
+  };
+
   useEffect(() => {
     fetchTagListData();
   }, []);
@@ -42,9 +46,10 @@ export default function TagsSection({ handleTagFilter }: Props) {
         {tagList?.map((tag: ITag) => (
           <li
             key={tag._id.toString()}
-            className={`side-tag-list-item ${activeTag == tag ? 'active' : 
+            className={`side-tag-list-item ${activeTag == tag ? 'active' : ''}`}
             onClick={() => {
               handleTagFilter(tag);
+              handleTagClick(tag);
             }}>
             {tag.name}
           </li>

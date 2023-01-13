@@ -15,7 +15,7 @@ function App() {
   const [sidebarActive, setSidebarActive] = useState<boolean>(false);
 
   const handleTagFilter = (tag: ITag) => {
-    setFilter(tag);
+    tag !== filter ? setFilter(tag) : setFilter(null);
   };
 
   const handleSearch = (query: string) => {
