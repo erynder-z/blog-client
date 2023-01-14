@@ -33,7 +33,7 @@ export default function AllPosts({ filter }: Props) {
   useEffect(() => {
     const filterForString = (filter: string) => {
       return fullPostList.filter((post) => {
-        return post.title.includes(filter) || post.text.includes(filter);
+        return post.title.includes(filter) || post.content.includes(filter);
       });
     };
 
