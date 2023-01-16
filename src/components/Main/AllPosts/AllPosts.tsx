@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { fetchPosts } from '../../../helpers/FetchPosts';
 import { IPost } from '../../../interfaces/Post';
 import { ITag } from '../../../interfaces/Tag';
 import PostItem from '../PostPreview/PostPreview';
@@ -15,19 +16,7 @@ export default function AllPosts({ filter }: Props) {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    const fetchPosts = async () => {
-      try {
-        const res = await fetch('http://localhost:8000/api/posts/all');
-        const data = await res.json();
-        setActivePostList(data.post_list);
-        setFullPostList(data.post_list);
-      } catch (err: any) {
-        setError(err);
-      }
-      setLoading(false);
-    };
-
-    fetchPosts();
+    fetchPosts('all', setActivePostList, setFullPostList, setLoading, setError);
   }, []);
 
   useEffect(() => {

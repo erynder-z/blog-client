@@ -7,6 +7,7 @@ import { IPost } from '../../../interfaces/Post';
 import { ITag } from '../../../interfaces/Tag';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
+import { fetchArticleData } from '../../../helpers/FetchArticleData';
 
 export default function ArticlePage() {
   const params = useParams();
@@ -15,23 +16,23 @@ export default function ArticlePage() {
   const [article, setArticle] = useState<IPost>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
+  const [refetchTrigger, setRefetchTrigger] = useState<boolean>(false);
 
   const decodedString = decode(article?.content);
 
-  const fetchArticleData = async () => {
-    try {
-      const res = await fetch(`http://localhost:8000/api/posts/${id}`);
-      const data = await res.json();
-      setArticle(data.post);
-    } catch (err: any) {
-      setError(err);
-    }
-    setLoading(false);
-  };
+  useEffect(() => {
+    fetchArticleData(id, setArticle, setLoading, setError);
+  }, [id]);
 
   useEffect(() => {
-    fetchArticleData();
-  }, [id]);
+    if (refetchTrigger) {
+      fetchArticleData(id, setArticle, setLoading, setError);
+    }
+  }, [refetchTrigger]);
+
+  useEffect(() => {
+    setRefetchTrigger(false);
+  }, [refetchTrigger]);
 
   if (loading) {
     return <p>Loading...</p>;
@@ -59,9 +60,9 @@ export default function ArticlePage() {
         {parse(decodedString)}
 
         {article && (
-          <CommentsSection commentList={article.comments} fetchArticleData={fetchArticleData} />
+          <CommentsSection commentList={article.comments} setRefetchTrigger={setRefetchTrigger} />
         )}
-        {!article && <CommentsSection commentList={[]} fetchArticleData={fetchArticleData} />}
+        {!article && <CommentsSection commentList={[]} setRefetchTrigger={setRefetchTrigger} />}
       </div>
     </main>
   );
