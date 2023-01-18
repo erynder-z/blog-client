@@ -3,7 +3,7 @@ import React, { useEffect, useState } from 'react';
 import { decode } from 'html-entities';
 import parse from 'html-react-parser';
 import { useParams } from 'react-router-dom';
-import { IPost } from '../../../interfaces/Post';
+import { IArticle } from '../../../interfaces/Article';
 import { ITag } from '../../../interfaces/Tag';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
@@ -14,7 +14,7 @@ export default function ArticlePage() {
   const params = useParams();
   const id: string | undefined = params.id;
 
-  const [article, setArticle] = useState<IPost>();
+  const [article, setArticle] = useState<IArticle>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [refetchTrigger, setRefetchTrigger] = useState<boolean>(false);

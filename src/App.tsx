@@ -3,8 +3,8 @@ import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
-import AllPosts from './components/Main/AllPosts/AllPosts';
-import LatestPosts from './components/Main/LatestPosts/LatestPosts';
+import AllArticles from './components/Main/AllArticles/AllArticles';
+import LatestArticles from './components/Main/LatestArticles/LatestArticles';
 import About from './components/Main/About/About';
 import ArticlePage from './components/Main/ArticlePage/ArticlePage';
 import { ITag } from './interfaces/Tag';
@@ -35,10 +35,10 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Navigate replace to="/latest" />} />
-            <Route path="/all" element={<AllPosts filter={filter} />} />
-            <Route path="/latest" element={<LatestPosts filter={filter} />} />
+            <Route path="/all" element={<AllArticles filter={filter} />} />
+            <Route path="/latest" element={<LatestArticles filter={filter} />} />
             <Route path="/about" element={<About />} />
-            <Route path="/post/:id" element={<ArticlePage />} />
+            <Route path="/article/:id" element={<ArticlePage />} />
             <Route path="*" element={<p>There's nothing here: 404!</p>} />
           </Routes>
         </main>
