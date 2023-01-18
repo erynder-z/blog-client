@@ -8,6 +8,7 @@ import { ITag } from '../../../interfaces/Tag';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
 import { fetchArticleData } from '../../../helpers/FetchArticleData';
+import { stripHtml } from 'string-strip-html';
 
 export default function ArticlePage() {
   const params = useParams();
@@ -18,6 +19,7 @@ export default function ArticlePage() {
   const [error, setError] = useState<Error | null>(null);
   const [refetchTrigger, setRefetchTrigger] = useState<boolean>(false);
 
+  const titleWithoutHTML = article?.title ? stripHtml(article.title).result : '';
   const decodedString = decode(article?.content);
 
   useEffect(() => {
@@ -48,7 +50,7 @@ export default function ArticlePage() {
           {format(new Date(article?.timestamp || ''), 'EEEE, dd. MMMM yyyy')}
         </div>
         <div className="author">by {article?.author?.username}</div>
-        <h1 className="article_title">{article?.title}</h1>
+        <h1 className="article_title">{titleWithoutHTML}</h1>
         <ul className="tag-list">
           {article?.tags?.map((tag: ITag) => (
             <li key={tag._id.toString()} className="tag-list-item">
