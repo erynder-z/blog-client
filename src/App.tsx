@@ -9,8 +9,12 @@ import About from './components/Main/About/About';
 import ArticlePage from './components/Main/ArticlePage/ArticlePage';
 import { ITag } from './interfaces/Tag';
 import { FaAngleDoubleUp } from 'react-icons/fa';
+import { ViewType } from './interfaces/customTypes';
 
 function App() {
+  const [currentView, setCurrentView] = useState<ViewType | null>(
+    (localStorage.getItem('currentView') as ViewType) || null
+  );
   const [filter, setFilter] = useState<ITag | string | null>(null);
   const [sidebarActive, setSidebarActive] = useState<boolean>(false);
 
@@ -30,7 +34,7 @@ function App() {
     <div className="app-container">
       <div className="main-container">
         <nav>
-          <Navbar />
+          <Navbar currentView={currentView} setCurrentView={setCurrentView} />
         </nav>
         <main>
           <Routes>
