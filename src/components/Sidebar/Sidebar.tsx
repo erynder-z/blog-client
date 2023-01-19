@@ -1,4 +1,4 @@
-import React, { Dispatch, SetStateAction } from 'react';
+import React from 'react';
 import { ITag } from '../../interfaces/Tag';
 import AdminSection from './AdminSection/AdminSection';
 import SearchSection from './SearchSection/SearchSection';
