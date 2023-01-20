@@ -10,6 +10,7 @@ import ArticlePage from './components/Main/ArticlePage/ArticlePage';
 import { ITag } from './interfaces/Tag';
 import { FaAngleDoubleUp } from 'react-icons/fa';
 import { ViewType } from './interfaces/customTypes';
+import NotFoundPage from './components/Main/NotFoundPage/NotFoundPage';
 
 function App() {
   const [currentView, setCurrentView] = useState<ViewType | null>(
@@ -43,7 +44,7 @@ function App() {
             <Route path="/latest" element={<LatestArticles filter={filter} />} />
             <Route path="/about" element={<About />} />
             <Route path="/article/:id" element={<ArticlePage />} />
-            <Route path="*" element={<p>There's nothing here: 404!</p>} />
+            <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
       </div>
