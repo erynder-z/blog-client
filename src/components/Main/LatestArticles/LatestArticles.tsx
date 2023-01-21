@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { MagnifyingGlass } from 'react-loader-spinner';
 import { fetchArticles } from '../../../helpers/FetchArticles';
 import { IArticle } from '../../../interfaces/Article';
 import { ITag } from '../../../interfaces/Tag';
@@ -44,7 +45,20 @@ export default function LatestArticles({ filter }: Props) {
   }, [filter]);
 
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="fetching">
+        <MagnifyingGlass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="MagnifyingGlass-loading"
+          wrapperStyle={{}}
+          wrapperClass="MagnifyingGlass-wrapper"
+          glassColor="#c0efff"
+          color="#e15b64"
+        />
+      </div>
+    );
   }
 
   if (error) {

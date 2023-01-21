@@ -48,6 +48,16 @@ nav {
   display: none;
 }
 
+.fetching {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+  border-radius: 4px;
+  min-height: 66vh;
+  background-color: var(--article_card_background);
+}
+
 @media (max-width: 800px) {
   .app-container {
     grid-template-columns: 1fr;
@@ -87,5 +97,9 @@ nav {
   .sidebar_toggle.active {
     top: 0;
     transform: rotate(180deg);
+  }
+
+  .fetching {
+    min-height: 75vh;
   }
 }
