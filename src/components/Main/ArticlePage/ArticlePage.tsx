@@ -9,6 +9,9 @@ import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
 import { fetchArticleData } from '../../../helpers/FetchArticleData';
 import { stripHtml } from 'string-strip-html';
+import { MagnifyingGlass } from 'react-loader-spinner';
+import Prism from 'prismjs';
+import '../../../libraries/prism-laserwave.css';
 
 export default function ArticlePage() {
   const params = useParams();
@@ -36,8 +39,25 @@ export default function ArticlePage() {
     setRefetchTrigger(false);
   }, [refetchTrigger]);
 
+  useEffect(() => {
+    Prism.highlightAll();
+  }, [decodedString]);
+
   if (loading) {
-    return <p>Loading...</p>;
+    return (
+      <div className="fetching">
+        <MagnifyingGlass
+          visible={true}
+          height="80"
+          width="80"
+          ariaLabel="MagnifyingGlass-loading"
+          wrapperStyle={{}}
+          wrapperClass="MagnifyingGlass-wrapper"
+          glassColor="#c0efff"
+          color="#e15b64"
+        />
+      </div>
+    );
   }
 
   if (error) {
@@ -58,9 +78,7 @@ export default function ArticlePage() {
             </li>
           ))}
         </ul>
-
-        {parse(decodedString)}
-
+        <div className="article-content">{parse(decodedString)}</div>
         {article && (
           <CommentsSection commentList={article.comments} setRefetchTrigger={setRefetchTrigger} />
         )}
