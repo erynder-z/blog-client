@@ -32,7 +32,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
           onClick={() => {
             handleSetCurrentView('All'), setActiveTag(null);
           }}>
-          All
+          All Articles
         </Link>
         <Link
           to="/latest"
@@ -40,7 +40,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
           onClick={() => {
             handleSetCurrentView('Latest'), setActiveTag(null);
           }}>
-          Latest
+          Latest Articles
         </Link>
         <Link
           to="/about"

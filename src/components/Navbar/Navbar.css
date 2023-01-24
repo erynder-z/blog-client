@@ -1,6 +1,6 @@
 .navbar {
   background-color: var(--nav);
-  color: var(--text_dark);
+  color: var(--text_2);
   /* max-width: 70ch; */
   padding: 1em;
   border-radius: 4px;
@@ -22,7 +22,7 @@
 }
 
 .nav-list-item {
-  color: var(--text_dark);
+  color: var(--text_2);
   position: relative;
   text-decoration: none;
 }
@@ -46,7 +46,7 @@
 }
 
 .nav-list-item:hover::before {
-  color: var(--text_dark);
+  color: var(--text_2);
   transform-origin: left;
   transform: scaleX(1);
 }
@@ -57,7 +57,7 @@
 }
 
 .nav-list-item:hover::before {
-  color: var(--text_dark);
+  color: var(--text_2);
   transform-origin: left;
   transform: scaleX(1);
 }

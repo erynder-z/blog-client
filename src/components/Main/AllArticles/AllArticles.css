@@ -19,7 +19,7 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   overflow: hidden;
   /*   flex: 1 1 300px; */
-  color: var(--text_dark);
+  color: var(--text_2);
 }
 
 .article-container:nth-of-type(4n) {

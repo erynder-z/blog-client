@@ -55,7 +55,7 @@ input,
 textarea {
   font-size: 1em;
   padding: 0.5rem;
-  border: 1px solid var(--text_dark);
+  border: 1px solid var(--text_2);
   border-radius: 4px;
   position: relative;
   box-sizing: border-box;

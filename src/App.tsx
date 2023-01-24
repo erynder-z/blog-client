@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
 import './App.css';
 import Navbar from './components/Navbar/Navbar';
@@ -11,8 +11,10 @@ import { ITag } from './interfaces/Tag';
 import { FaAngleDoubleUp } from 'react-icons/fa';
 import { ViewType } from './interfaces/customTypes';
 import NotFoundPage from './components/Main/NotFoundPage/NotFoundPage';
+import ThemeContext from './contexts/ThemeContext';
 
 function App() {
+  const { theme } = useContext(ThemeContext);
   const [currentView, setCurrentView] = useState<ViewType | null>(
     (localStorage.getItem('currentView') as ViewType) || null
   );
@@ -32,7 +34,7 @@ function App() {
   };
 
   return (
-    <div className="app-container">
+    <div className={`app-container ${theme}`}>
       <div className="main-container">
         <nav>
           <Navbar currentView={currentView} setCurrentView={setCurrentView} />

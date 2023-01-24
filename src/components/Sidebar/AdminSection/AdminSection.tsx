@@ -8,10 +8,8 @@ export default function AdminSection() {
   };
 
   return (
-    <div className="admin-container">
-      <button className="adminBtn" onClick={handleClick}>
-        Admin Login <FaUserLock />
-      </button>
-    </div>
+    <button className="adminBtn" onClick={handleClick}>
+      Author Login <FaUserLock />
+    </button>
   );
 }

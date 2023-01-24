@@ -4,12 +4,15 @@ import ReactDOM from 'react-dom/client';
 import App from './App';
 import './index.css';
 import { ActiveTagContextProvider } from './contexts/ActiveTagContext';
+import { ThemeContextProvider } from './contexts/ThemeContext';
 
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <React.StrictMode>
     <BrowserRouter>
       <ActiveTagContextProvider>
-        <App />
+        <ThemeContextProvider>
+          <App />
+        </ThemeContextProvider>
       </ActiveTagContextProvider>
     </BrowserRouter>
   </React.StrictMode>
