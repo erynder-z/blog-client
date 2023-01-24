@@ -4,6 +4,7 @@ import AdminSection from './AdminSection/AdminSection';
 import SearchSection from './SearchSection/SearchSection';
 import './Sidebar.css';
 import TagsSection from './TagsSection/TagsSection';
+import ThemeSwitch from './ThemeSwitch/ThemeSwitch';
 
 interface Props {
   handleTagFilter: (tag: ITag) => void;
@@ -15,6 +16,7 @@ export default function Sidebar({ handleTagFilter, handleSearch }: Props) {
     <div className="sidebar">
       <SearchSection handleSearch={handleSearch} />
       <TagsSection handleTagFilter={handleTagFilter} />
+      <ThemeSwitch />
       <AdminSection />
     </div>
   );
