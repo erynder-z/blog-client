@@ -52,18 +52,18 @@ export default function NewCommentModal({ showModal, closeModal, setRefetchTrigg
         <form onSubmit={handleSubmit}>
           <div className="input-container">
             <input type="text" id="author" ref={usernameRef} required />
-            <label htmlFor="author">Username</label>
+            <label htmlFor="author">Name (required)</label>
           </div>
           <div className="input-container">
             <textarea id="text" ref={textRef} required />
-            <label htmlFor="text">Comment</label>
+            <label htmlFor="text">Comment (required)</label>
           </div>
           <button type="submit">
             Submit <FaCheck />
           </button>
         </form>
         <button className="closeBtn" onClick={closeModal}>
-          Close <FaTimes />
+          <FaTimes />
         </button>
       </div>
     </div>

@@ -6,7 +6,7 @@
   line-height: 24px;
   font-weight: 400;
 
-  --background_dark: #001c30;
+  /*   --background_dark: #001c30;
   --background_bright: #f6f6f6;
   --text_bright: #f6f6f6;
   --text_dark: #001b2e;
@@ -17,7 +17,7 @@
   --tag_background: #cd3c00;
   --button: #003b5e;
   --hover: #0071af;
-  --highlight: #d2008f;
+  --highlight: #d2008f; */
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -26,62 +26,22 @@
   -webkit-text-size-adjust: 100%;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+html {
+  scrollbar-width: auto;
+  scrollbar-color: var(--highlight) var(--background_1);
 }
 
-body {
-  margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
-  background-color: var(--background_dark);
+html::-webkit-scrollbar {
+  width: 8px;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+html::-webkit-scrollbar-track {
+  background: var(--background_1);
 }
-
-button {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  gap: 1rem;
-  border-radius: 4px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
-  background-color: var(--button);
-  color: var(--text_bright);
-}
-button:hover {
-  background-color: var(--hover);
-  border-color: var(--hover);
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
+html::-webkit-scrollbar-thumb {
+  background-color: var(--highlight);
 }
 
 ::selection {
-  color: var(--text_bright);
+  color: var(--text_1);
   background: var(--highlight);
-}
-
-@media (max-width: 800px) {
-  h1 {
-    font-size: 2em;
-  }
 }
