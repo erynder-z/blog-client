@@ -1,8 +1,8 @@
 import React from 'react';
 import { ITag } from '../../interfaces/Tag';
-import AdminSection from './AdminSection/AdminSection';
 import SearchSection from './SearchSection/SearchSection';
 import './Sidebar.css';
+import SocialLinks from './SocialLinks/SocialLinks';
 import TagsSection from './TagsSection/TagsSection';
 import ThemeSwitch from './ThemeSwitch/ThemeSwitch';
 
@@ -17,7 +17,7 @@ export default function Sidebar({ handleTagFilter, handleSearch }: Props) {
       <SearchSection handleSearch={handleSearch} />
       <TagsSection handleTagFilter={handleTagFilter} />
       <ThemeSwitch />
-      <AdminSection />
+      <SocialLinks />
     </div>
   );
 }

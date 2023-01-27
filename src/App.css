@@ -7,8 +7,9 @@
   --sidebar: #001c30;
   --card_background: #f6f6f6;
   --tag_background: #cd3c00;
+  --hover: #c6e0ff;
   --button: #003b5e;
-  --hover: #0071af;
+  --button_hover: #005180;
   --button_danger: #800040;
   --button_danger_hover: #99024e;
   --highlight: #d2008f;
@@ -25,8 +26,9 @@
   --sidebar: #44475a;
   --card_background: hsl(232, 14%, 35%);
   --tag_background: #846560;
-  --button: #555673;
   --hover: #777798;
+  --button: #555673;
+  --button_hover: #616285;
   --button_danger: #68829f;
   --button_danger_hover: #bb928b;
   --highlight: #866c83;
@@ -43,8 +45,9 @@
   --sidebar: #1d1f21;
   --card_background: hsl(210, 6%, 15%);
   --tag_background: #48513b;
+  --hover: #50272c;
   --button: #292d3e;
-  --hover: #ac6d74;
+  --button_hover: #353b56;
   --button_danger: #97522c;
   --button_danger_hover: #be100e;
   --highlight: #ac6d74;
@@ -61,8 +64,9 @@
   --sidebar: #f4f4f4;
   --card_background: #ffffff;
   --tag_background: #f7d4cf;
-  --button: #f8eec7;
   --hover: #f1d007;
+  --button: #f8eec7;
+  --button_hover: #decf92;
   --button_danger: #fb7661;
   --button_danger_hover: rgb(255, 91, 88);
   --highlight: #f1d007;
@@ -111,8 +115,8 @@ button {
   color: var(--text_1);
 }
 button:hover {
-  background-color: var(--hover);
-  border-color: var(--hover);
+  background-color: var(--button_hover);
+  border-color: var(--button_hover);
 }
 button:focus,
 button:focus-visible {

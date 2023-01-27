@@ -22,7 +22,7 @@
 }
 
 .theme_switch-button:hover {
-  background-color: var(--hover);
+  background-color: var(--button_hover);
   border-color: var(--hover);
   color: var(--text_1);
 }
