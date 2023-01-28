@@ -5,7 +5,8 @@ export const fetchArticleData = async (
   setError?: Function
 ) => {
   try {
-    const res = await fetch(`http://localhost:8000/api/articles/${id}`);
+    const serverURL = import.meta.env.VITE_SERVER_URL;
+    const res = await fetch(`${serverURL}/api/articles/${id}`);
     const data = await res.json();
     if (setArticle) {
       setArticle(data.article);
