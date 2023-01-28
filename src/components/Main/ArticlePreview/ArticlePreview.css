@@ -9,6 +9,8 @@
   color: var(--text_2);
   text-decoration: none;
   transition: background-color 0.3s cubic-bezier(0.86, 0, 0.07, 1);
+  position: relative;
+  overflow: hidden;
 }
 
 .article:hover {
@@ -18,28 +20,28 @@
 
 .article:hover .read_more {
   transform: scale(1.1);
-  color: var(--text_2);
 }
-
-/* .article:hover .timestamp,
-.article:hover .article-text {
-  color: inherit;
-} */
 
 .timestamp {
   font-size: 0.6em;
   color: var(--text_3);
+  z-index: 2;
+  position: relative;
 }
 
 .article-title {
   margin: 0;
   word-wrap: break-word;
   font-size: 1.2em;
+  z-index: 2;
+  position: relative;
 }
 
 .author {
   font-size: 0.6em;
   color: var(--text_3);
+  z-index: 2;
+  position: relative;
 }
 
 .article-text {
@@ -47,6 +49,8 @@
   word-wrap: break-word;
   font-size: 0.65em;
   color: var(--text_3);
+  z-index: 2;
+  position: relative;
 }
 
 .article-bottom {
@@ -56,6 +60,8 @@
   font-size: 0.6em;
   gap: 0.6em;
   width: 100%;
+  z-index: 2;
+  position: relative;
 }
 
 .read_more {
@@ -64,6 +70,23 @@
   align-items: center;
   margin-left: auto;
   gap: 0.6em;
-  color: var(--text_1);
+  color: var(--text_2);
   transition: all 0.3s ease-in-out;
+  z-index: 2;
+  position: relative;
+}
+
+.article .layer {
+  z-index: 1;
+  position: absolute;
+  top: calc(100% - 5px);
+  height: 100%;
+  width: 100%;
+  left: 0;
+  background: var(--hover);
+  transition: 0.2s;
+}
+
+.article:hover .layer {
+  top: 0;
 }

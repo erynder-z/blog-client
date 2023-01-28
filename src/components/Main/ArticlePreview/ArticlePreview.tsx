@@ -29,6 +29,7 @@ export default function ArticlePreview({ articleData }: Props) {
 
   return (
     <Link to={`/article/${_id}`} className="article">
+      <div className="layer"></div>
       <div className="article-top">
         <div className="article-head">
           <div className="timestamp">{format(new Date(timestamp), 'EEEE, dd. MMMM yyyy')}</div>{' '}
@@ -39,7 +40,7 @@ export default function ArticlePreview({ articleData }: Props) {
       <div className="article-bottom">
         {comments.length} <FaRegCommentAlt />
         <div className="read_more">
-          Read more <FaArrowRight />
+          <span> Read more</span> <FaArrowRight />
         </div>
       </div>
     </Link>
