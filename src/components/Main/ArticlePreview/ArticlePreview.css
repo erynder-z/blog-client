@@ -79,7 +79,7 @@
 .article .layer {
   z-index: 1;
   position: absolute;
-  top: calc(100% - 5px);
+  top: calc(100% - 10px);
   height: 100%;
   width: 100%;
   left: 0;
