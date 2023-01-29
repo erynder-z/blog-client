@@ -22,7 +22,7 @@ function App() {
   const [sidebarActive, setSidebarActive] = useState<boolean>(false);
 
   const handleTagFilter = (tag: ITag) => {
-    tag !== filter ? setFilter(tag) : setFilter(null);
+    setFilter(tag === filter ? null : tag);
   };
 
   const handleSearch = (query: string) => {
