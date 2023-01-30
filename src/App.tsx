@@ -52,6 +52,7 @@ function App() {
       </div>
       <aside>
         <FaAngleDoubleUp
+          aria-label="Toggle Sidebar"
           className={`sidebar_toggle ${sidebarActive ? 'active' : ''}`}
           onClick={toggleSidebarActive}
         />
