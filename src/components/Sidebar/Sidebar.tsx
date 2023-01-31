@@ -14,10 +14,18 @@ interface Props {
 export default function Sidebar({ handleTagFilter, handleSearch }: Props) {
   return (
     <div className="sidebar">
-      <SearchSection handleSearch={handleSearch} />
-      <TagsSection handleTagFilter={handleTagFilter} />
-      <ThemeSwitch />
-      <SocialLinks />
+      <header className="sidebar-header">
+        <SearchSection handleSearch={handleSearch} />
+      </header>
+      <nav className="sidebar-nav">
+        <TagsSection handleTagFilter={handleTagFilter} />
+      </nav>
+      <div className="sidebar-theme-switch">
+        <ThemeSwitch aria-label="Toggle dark/light theme" />
+      </div>
+      <div className="sidebar-social-links">
+        <SocialLinks />
+      </div>
     </div>
   );
 }

@@ -19,38 +19,46 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
   };
 
   return (
-    <div className="navbar">
+    <nav aria-label="Main navigation" className="navbar">
       <h1 className="nav-title">
-        {' '}
-        <FaLayerGroup />
+        <FaLayerGroup aria-hidden="true" />
         Blog
       </h1>
-      <div className="nav-list">
-        <Link
-          to="/all"
-          className={`nav-list-item ${currentView === 'All' ? 'active' : ''}`}
-          onClick={() => {
-            handleSetCurrentView('All'), setActiveTag(null);
-          }}>
-          All Articles
-        </Link>
-        <Link
-          to="/latest"
-          className={`nav-list-item ${currentView === 'Latest' ? 'active' : ''}`}
-          onClick={() => {
-            handleSetCurrentView('Latest'), setActiveTag(null);
-          }}>
-          Latest Articles
-        </Link>
-        <Link
-          to="/about"
-          className={`nav-list-item ${currentView === 'About' ? 'active' : ''}`}
-          onClick={() => {
-            handleSetCurrentView('About'), setActiveTag(null);
-          }}>
-          About
-        </Link>
-      </div>
-    </div>
+      <ul className="nav-list">
+        <li className="nav-list-item">
+          <Link
+            to="/all"
+            className={`${currentView === 'All' ? 'active' : ''}`}
+            aria-current={currentView === 'All' ? 'page' : undefined}
+            onClick={() => {
+              handleSetCurrentView('All'), setActiveTag(null);
+            }}>
+            All Articles
+          </Link>
+        </li>
+        <li className="nav-list-item">
+          <Link
+            to="/latest"
+            className={`${currentView === 'Latest' ? 'active' : ''}`}
+            aria-current={currentView === 'Latest' ? 'page' : undefined}
+            onClick={() => {
+              handleSetCurrentView('Latest'), setActiveTag(null);
+            }}>
+            Latest Articles
+          </Link>
+        </li>
+        <li className="nav-list-item">
+          <Link
+            to="/about"
+            className={`${currentView === 'About' ? 'active' : ''}`}
+            aria-current={currentView === 'About' ? 'page' : undefined}
+            onClick={() => {
+              handleSetCurrentView('About'), setActiveTag(null);
+            }}>
+            About
+          </Link>
+        </li>
+      </ul>
+    </nav>
   );
 }
