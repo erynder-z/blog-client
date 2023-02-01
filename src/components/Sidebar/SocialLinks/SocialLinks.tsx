@@ -9,10 +9,10 @@ export default function SocialLinks() {
 
   return (
     <div className="socialBtn">
-      <button>
-        <FaGithub onClick={handleGithubClick} />
+      <button aria-label="Github link" onClick={handleGithubClick}>
+        <FaGithub />
       </button>
-      <a className="mailto" href="mailto:stfn.bgr@gmail.com">
+      <a className="mailto" href="mailto:stfn.bgr@gmail.com" aria-label="Email link">
         {' '}
         <FaEnvelope />
       </a>

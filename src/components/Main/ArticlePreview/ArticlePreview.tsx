@@ -32,13 +32,18 @@ export default function ArticlePreview({ articleData }: Props) {
       <div className="layer"></div>
       <div className="article-top">
         <div className="article-head">
-          <div className="timestamp">{format(new Date(timestamp), 'EEEE, dd. MMMM yyyy')}</div>{' '}
+          <div
+            className="timestamp"
+            aria-label={`Published on ${format(new Date(timestamp), 'EEEE, dd. MMMM yyyy')}`}>
+            {format(new Date(timestamp), 'EEEE, dd. MMMM yyyy')}
+          </div>{' '}
           <h1 className="article-title">{getTitleExcerpt(title)}</h1>
         </div>
         <p className="article-text">{getTextExcerpt(content)}</p>
       </div>
       <div className="article-bottom">
-        {comments.length} <FaRegCommentAlt />
+        <span aria-label={`Number of comments: ${comments.length}`}>{comments.length}</span>
+        <FaRegCommentAlt />
         <div className="read_more">
           <span> Read more</span> <FaArrowRight />
         </div>

@@ -32,8 +32,10 @@ export default function TagsSection({ handleTagFilter }: Props) {
 
   return (
     <div className="tag-section">
-      <h1 className="side-tags-heading">All tags</h1>
-      <ul className="side-tag-list">
+      <h1 className="side-tags-heading" aria-label="List of all tags">
+        All tags
+      </h1>
+      <ul className="side-tag-list" aria-label="List of all tags">
         {tagList?.map((tag: ITag) => (
           <li
             key={tag._id.toString()}
@@ -41,7 +43,10 @@ export default function TagsSection({ handleTagFilter }: Props) {
             onClick={() => {
               handleTagFilter(tag);
               handleTagClick(tag);
-            }}>
+            }}
+            role="button"
+            aria-label={`Filter by tag: ${tag.name}`}
+            tabIndex={0}>
             {tag.name}
           </li>
         ))}

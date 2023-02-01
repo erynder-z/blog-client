@@ -45,44 +45,64 @@ export default function ArticlePage() {
 
   if (loading) {
     return (
-      <div className="fetching">
+      <div className="fetching" aria-live="polite">
         <MagnifyingGlass
           visible={true}
           height="80"
           width="80"
-          ariaLabel="MagnifyingGlass-loading"
+          aria-label="loading spinner"
           wrapperStyle={{}}
           wrapperClass="MagnifyingGlass-wrapper"
           glassColor="#c0efff"
           color="#e15b64"
         />
+        <p>Loading article...</p>
       </div>
     );
   }
 
   if (error) {
-    return <p>An error occurred: {error.message}</p>;
+    return <p aria-live="assertive">An error occurred: {error.message}</p>;
   }
+
   return (
-    <main className="article_page">
+    <main className="article_page" role="main">
       <div className="article_container">
-        <div className="timestamp">
-          {format(new Date(article?.timestamp || ''), 'EEEE, dd. MMMM yyyy')}
-        </div>
-        <div className="author">by {article?.author?.username}</div>
-        <h1 className="article_title">{titleWithoutHTML}</h1>
-        <ul className="tag-list">
+        <header className="article_header">
+          <time className="timestamp" dateTime={new Date(article?.timestamp || '').toString()}>
+            {format(new Date(article?.timestamp || ''), 'EEEE, dd. MMMM yyyy')}
+          </time>
+          <div className="author">by {article?.author?.username}</div>
+        </header>
+        <h1 className="article_title" aria-label="Article Title">
+          {titleWithoutHTML}
+        </h1>
+        <ul className="tag-list" aria-label="Article Tags">
           {article?.tags?.map((tag: ITag) => (
             <li key={tag._id.toString()} className="tag-list-item">
               {tag.name}
             </li>
           ))}
         </ul>
-        <div className="article-content">{parse(decodedString)}</div>
-        {article && (
-          <CommentsSection commentList={article.comments} setRefetchTrigger={setRefetchTrigger} />
-        )}
-        {!article && <CommentsSection commentList={[]} setRefetchTrigger={setRefetchTrigger} />}
+        <article className="article-content" aria-label="Article Content">
+          {parse(decodedString)}
+        </article>
+        <aside className="comments_section">
+          {article && (
+            <CommentsSection
+              commentList={article.comments}
+              setRefetchTrigger={setRefetchTrigger}
+              aria-label="Article Comments"
+            />
+          )}
+          {!article && (
+            <CommentsSection
+              commentList={[]}
+              setRefetchTrigger={setRefetchTrigger}
+              aria-label="Article Comments"
+            />
+          )}
+        </aside>
       </div>
     </main>
   );

@@ -11,7 +11,7 @@ export default function Comment({ commentData }: Props) {
   const { author, text, timestamp } = commentData;
 
   return (
-    <div className="comment">
+    <div className="comment" aria-label="Comment">
       <div className="comment-head">
         from: <strong>{author}</strong> on
         {format(new Date(timestamp || ''), ' dd. MMM. yyyy')}
