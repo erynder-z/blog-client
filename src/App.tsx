@@ -25,7 +25,7 @@ function App() {
     setFilter(tag === filter ? null : tag);
   };
 
-  const handleSearch = (query: string) => {
+  const handleSearch = (query: string | null) => {
     setFilter(query);
   };
 
@@ -57,7 +57,7 @@ function App() {
           onClick={toggleSidebarActive}
         />
         <div className={`side-container ${sidebarActive ? 'active' : ''}`}>
-          <Sidebar handleTagFilter={handleTagFilter} handleSearch={handleSearch} />
+          <Sidebar handleTagFilter={handleTagFilter} handleSearch={handleSearch} filter={filter} />
         </div>
       </aside>
     </div>
