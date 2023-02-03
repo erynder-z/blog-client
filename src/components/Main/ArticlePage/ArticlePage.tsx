@@ -2,19 +2,21 @@ import { format } from 'date-fns';
 import React, { useEffect, useState } from 'react';
 import { decode } from 'html-entities';
 import parse from 'html-react-parser';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { IArticle } from '../../../interfaces/Article';
 import { ITag } from '../../../interfaces/Tag';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
 import { fetchArticleData } from '../../../helpers/FetchArticleData';
 import { stripHtml } from 'string-strip-html';
-import { MagnifyingGlass } from 'react-loader-spinner';
 import Prism from 'prismjs';
 import '../../../libraries/prism-laserwave.css';
+import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
+import { FaArrowLeft } from 'react-icons/fa';
 
 export default function ArticlePage() {
   const params = useParams();
+  let navigate = useNavigate();
   const id: string | undefined = params.id;
 
   const [article, setArticle] = useState<IArticle>();
@@ -24,6 +26,10 @@ export default function ArticlePage() {
 
   const titleWithoutHTML = article?.title ? stripHtml(article.title).result : '';
   const decodedString = decode(article?.content);
+
+  const goToPreviousPage = () => {
+    navigate(-1);
+  };
 
   useEffect(() => {
     fetchArticleData(id, setArticle, setLoading, setError);
@@ -44,21 +50,7 @@ export default function ArticlePage() {
   }, [decodedString]);
 
   if (loading) {
-    return (
-      <div className="fetching" aria-live="polite">
-        <MagnifyingGlass
-          visible={true}
-          height="80"
-          width="80"
-          aria-label="loading spinner"
-          wrapperStyle={{}}
-          wrapperClass="MagnifyingGlass-wrapper"
-          glassColor="#c0efff"
-          color="#e15b64"
-        />
-        <p>Loading article...</p>
-      </div>
-    );
+    return <ArticleFetchingAnimation />;
   }
 
   if (error) {
@@ -68,7 +60,7 @@ export default function ArticlePage() {
   return (
     <main className="article_page" role="main">
       <div className="article_container">
-        <header className="article_header">
+        <header className="article_header" aria-label="Article Header">
           <time className="timestamp" dateTime={new Date(article?.timestamp || '').toString()}>
             {format(new Date(article?.timestamp || ''), 'EEEE, dd. MMMM yyyy')}
           </time>
@@ -87,6 +79,9 @@ export default function ArticlePage() {
         <article className="article-content" aria-label="Article Content">
           {parse(decodedString)}
         </article>
+        <button className="backBtn" onClick={goToPreviousPage}>
+          <FaArrowLeft /> go back
+        </button>
         <aside className="comments_section">
           {article && (
             <CommentsSection

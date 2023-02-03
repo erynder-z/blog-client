@@ -250,17 +250,6 @@ textarea:focus {
   display: none;
 }
 
-.fetching {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
-  border-radius: 4px;
-  min-height: 66vh;
-  background-color: var(--card_background);
-}
-
 @media (max-width: 800px) {
   h1 {
     font-size: 2em;

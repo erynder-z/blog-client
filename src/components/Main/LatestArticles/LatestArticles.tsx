@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
-import { MagnifyingGlass } from 'react-loader-spinner';
 import { fetchArticles } from '../../../helpers/FetchArticles';
-import { filterArticles } from '../../../helpers/FilterArtices';
+import { filterArticles } from '../../../helpers/FilterArticles';
 import { IArticle } from '../../../interfaces/Article';
 import { ITag } from '../../../interfaces/Tag';
+import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
 import ArticleItem from '../ArticlePreview/ArticlePreview';
 import NoArticlePage from '../NoArticlePage/NoArticlePage';
 import './LatestArticles.css';
@@ -27,22 +27,7 @@ export default function LatestArticles({ filter }: Props) {
   }, [filter, fullArticleList]);
 
   if (loading) {
-    return (
-      <div className="fetching" aria-live="polite">
-        <MagnifyingGlass
-          visible={true}
-          height="80"
-          width="80"
-          aria-label="Loading articles"
-          ariaLabel="MagnifyingGlass-loading"
-          wrapperStyle={{}}
-          wrapperClass="MagnifyingGlass-wrapper"
-          glassColor="#c0efff"
-          color="#e15b64"
-        />
-        <p>Loading articles...</p>
-      </div>
-    );
+    return <ArticleFetchingAnimation />;
   }
 
   if (error) {

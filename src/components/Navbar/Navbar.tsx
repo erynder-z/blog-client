@@ -22,7 +22,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
     <nav aria-label="Main navigation" className="navbar">
       <h1 className="nav-title">
         <FaLayerGroup aria-hidden="true" />
-        Blog
+        ./code/blog
       </h1>
       <ul className="nav-list">
         <li className="nav-list-item">
