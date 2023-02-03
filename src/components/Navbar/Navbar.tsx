@@ -21,7 +21,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
   return (
     <nav aria-label="Main navigation" className="navbar">
       <h1 className="nav-title">
-        <FaLayerGroup aria-hidden="true" />
+        <FaLayerGroup className="logo" />
         ./code/blog
       </h1>
       <ul className="nav-list">

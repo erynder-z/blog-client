@@ -1,4 +1,4 @@
-.not_found {
+.no_article {
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -10,4 +10,6 @@
   color: var(--text_2);
   border-radius: 4px;
   text-align: center;
+  font-size: 1.8em;
+  font-weight: 700;
 }
