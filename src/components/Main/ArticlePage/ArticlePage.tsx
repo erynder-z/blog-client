@@ -7,12 +7,13 @@ import { IArticle } from '../../../interfaces/Article';
 import { ITag } from '../../../interfaces/Tag';
 import CommentsSection from '../CommentsSection/CommentsSection';
 import './ArticlePage.css';
-import { fetchArticleData } from '../../../helpers/FetchArticleData';
+import { fetchArticleContent } from '../../../helpers/FetchArticleContent';
 import { stripHtml } from 'string-strip-html';
 import Prism from 'prismjs';
 import '../../../libraries/prism-laserwave.css';
 import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
 import { FaArrowLeft } from 'react-icons/fa';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 
 export default function ArticlePage() {
   const params = useParams();
@@ -32,12 +33,12 @@ export default function ArticlePage() {
   };
 
   useEffect(() => {
-    fetchArticleData(id, setArticle, setLoading, setError);
+    fetchArticleContent(id, setArticle, setLoading, setError);
   }, [id]);
 
   useEffect(() => {
     if (refetchTrigger) {
-      fetchArticleData(id, setArticle, setLoading, setError);
+      fetchArticleContent(id, setArticle, setLoading, setError);
     }
   }, [refetchTrigger]);
 
@@ -54,7 +55,7 @@ export default function ArticlePage() {
   }
 
   if (error) {
-    return <p aria-live="assertive">An error occurred: {error.message}</p>;
+    return <NotFoundPage />;
   }
 
   return (

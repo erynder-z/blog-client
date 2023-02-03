@@ -1,4 +1,4 @@
-export const fetchArticles = async (
+export const fetchArticleList = async (
   endpoint: string,
   setActiveArticleList: Function,
   setFullArticleList: Function,
@@ -8,11 +8,16 @@ export const fetchArticles = async (
   try {
     const serverURL = import.meta.env.VITE_SERVER_URL;
     const res = await fetch(`${serverURL}/api/articles/${endpoint}`, {});
-    const data = await res.json();
-    setActiveArticleList(data.article_list);
-    setFullArticleList(data.article_list);
-  } catch (err: any) {
+    if (res.ok) {
+      const data = await res.json();
+      setActiveArticleList(data.article_list);
+      setFullArticleList(data.article_list);
+    } else {
+      throw new Error(`Server returned ${res.status} ${res.statusText}`);
+    }
+  } catch (err) {
     setError(err);
   }
+
   setLoading(false);
 };

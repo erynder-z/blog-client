@@ -1,11 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { fetchArticles } from '../../../helpers/FetchArticles';
+import { fetchArticleList } from '../../../helpers/FetchArticleList';
 import { filterArticles } from '../../../helpers/FilterArticles';
 import { IArticle } from '../../../interfaces/Article';
 import { ITag } from '../../../interfaces/Tag';
 import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
 import ArticleItem from '../ArticlePreview/ArticlePreview';
 import NoArticlePage from '../NoArticlePage/NoArticlePage';
+import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import './LatestArticles.css';
 
 interface Props {
@@ -19,7 +20,7 @@ export default function LatestArticles({ filter }: Props) {
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
-    fetchArticles('latest', setActiveArticleList, setFullArticleList, setLoading, setError);
+    fetchArticleList('latest', setActiveArticleList, setFullArticleList, setLoading, setError);
   }, []);
 
   useEffect(() => {
@@ -32,9 +33,10 @@ export default function LatestArticles({ filter }: Props) {
 
   if (error) {
     return (
-      <p aria-live="assertive">
+      /*   <p aria-live="assertive">
         An error occurred: <span role="alert">{error.message}</span>
-      </p>
+      </p> */
+      <NotFoundPage />
     );
   }
 
