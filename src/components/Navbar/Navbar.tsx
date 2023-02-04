@@ -2,7 +2,6 @@ import React, { Dispatch, SetStateAction, useContext } from 'react';
 import { Link } from 'react-router-dom';
 import ActiveTagContext from '../../contexts/ActiveTagContext';
 import { ViewType } from '../../interfaces/customTypes';
-import { FaLayerGroup } from 'react-icons/fa';
 import './Navbar.css';
 
 interface Props {
@@ -11,8 +10,6 @@ interface Props {
 }
 
 export default function Navbar({ currentView, setCurrentView }: Props) {
-  const { setActiveTag } = useContext(ActiveTagContext);
-
   const handleSetCurrentView = (currentView: 'All' | 'Latest' | 'About' | 'Other') => {
     setCurrentView(currentView);
     localStorage.setItem('currentView', currentView);
@@ -20,10 +17,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
 
   return (
     <nav aria-label="Main navigation" className="navbar">
-      <h1 className="nav-title">
-        <FaLayerGroup className="logo" />
-        ./code/blog
-      </h1>
+      <h1 className="nav-title">./code/blog</h1>
       <ul className="nav-list">
         <li className="nav-list-item">
           <Link
@@ -31,7 +25,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
             className={`${currentView === 'All' ? 'active' : ''}`}
             aria-current={currentView === 'All' ? 'page' : undefined}
             onClick={() => {
-              handleSetCurrentView('All'), setActiveTag(null);
+              handleSetCurrentView('All');
             }}>
             All Articles
           </Link>
@@ -42,7 +36,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
             className={`${currentView === 'Latest' ? 'active' : ''}`}
             aria-current={currentView === 'Latest' ? 'page' : undefined}
             onClick={() => {
-              handleSetCurrentView('Latest'), setActiveTag(null);
+              handleSetCurrentView('Latest');
             }}>
             Latest Articles
           </Link>
@@ -53,7 +47,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
             className={`${currentView === 'About' ? 'active' : ''}`}
             aria-current={currentView === 'About' ? 'page' : undefined}
             onClick={() => {
-              handleSetCurrentView('About'), setActiveTag(null);
+              handleSetCurrentView('About');
             }}>
             About
           </Link>

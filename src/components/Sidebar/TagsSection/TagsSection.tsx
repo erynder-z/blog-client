@@ -1,21 +1,19 @@
-import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
-import ActiveTagContext from '../../../contexts/ActiveTagContext';
+import React, { useContext, useEffect, useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import FilterContext from '../../../contexts/FilterContext';
 import { fetchTagListData } from '../../../helpers/FetchTagListData';
 import { ITag } from '../../../interfaces/Tag';
 import './TagSection.css';
 
-interface Props {
-  handleTagFilter: (tag: ITag) => void;
-}
-
-export default function TagsSection({ handleTagFilter }: Props) {
+export default function TagsSection() {
+  const { filter, setFilter } = useContext(FilterContext);
   const [tagList, setTagList] = useState<ITag[]>();
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
-  const { activeTag, setActiveTag } = useContext(ActiveTagContext);
+  const navigate = useNavigate();
 
   const handleTagClick = (tag: ITag) => {
-    tag !== activeTag ? setActiveTag(tag) : setActiveTag(null);
+    navigate('/search');
   };
 
   useEffect(() => {
@@ -39,9 +37,9 @@ export default function TagsSection({ handleTagFilter }: Props) {
         {tagList?.map((tag: ITag) => (
           <li
             key={tag._id.toString()}
-            className={`side-tag-list-item ${activeTag == tag ? 'active' : ''}`}
+            className={`side-tag-list-item ${filter == tag ? 'active' : ''}`}
             onClick={() => {
-              handleTagFilter(tag);
+              setFilter(tag);
               handleTagClick(tag);
             }}
             role="button"

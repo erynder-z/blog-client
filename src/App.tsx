@@ -7,27 +7,18 @@ import AllArticles from './components/Main/AllArticles/AllArticles';
 import LatestArticles from './components/Main/LatestArticles/LatestArticles';
 import About from './components/Main/About/About';
 import ArticlePage from './components/Main/ArticlePage/ArticlePage';
-import { ITag } from './interfaces/Tag';
 import { FaAngleDoubleUp } from 'react-icons/fa';
 import { ViewType } from './interfaces/customTypes';
 import NotFoundPage from './components/Main/NotFoundPage/NotFoundPage';
 import ThemeContext from './contexts/ThemeContext';
+import SearchResults from './components/Main/SearchResults/SearchResults';
 
 function App() {
   const { theme } = useContext(ThemeContext);
   const [currentView, setCurrentView] = useState<ViewType | null>(
     (localStorage.getItem('currentView') as ViewType) || null
   );
-  const [filter, setFilter] = useState<ITag | string | null>(null);
   const [sidebarActive, setSidebarActive] = useState<boolean>(false);
-
-  const handleTagFilter = (tag: ITag) => {
-    setFilter(tag === filter ? null : tag);
-  };
-
-  const handleSearch = (query: string | null) => {
-    setFilter(query);
-  };
 
   const toggleSidebarActive = () => {
     setSidebarActive(!sidebarActive);
@@ -42,10 +33,11 @@ function App() {
         <main>
           <Routes>
             <Route path="/" element={<Navigate replace to="/latest" />} />
-            <Route path="/all" element={<AllArticles filter={filter} />} />
-            <Route path="/latest" element={<LatestArticles filter={filter} />} />
+            <Route path="/all" element={<AllArticles />} />
+            <Route path="/latest" element={<LatestArticles />} />
             <Route path="/about" element={<About />} />
             <Route path="/article/:id" element={<ArticlePage />} />
+            <Route path="/search" element={<SearchResults />} />
             <Route path="*" element={<NotFoundPage />} />
           </Routes>
         </main>
@@ -57,7 +49,7 @@ function App() {
           onClick={toggleSidebarActive}
         />
         <div className={`side-container ${sidebarActive ? 'active' : ''}`}>
-          <Sidebar handleTagFilter={handleTagFilter} handleSearch={handleSearch} filter={filter} />
+          <Sidebar />
         </div>
       </aside>
     </div>

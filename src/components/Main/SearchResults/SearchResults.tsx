@@ -1,13 +1,17 @@
-import React, { useEffect, useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
+import FilterContext from '../../../contexts/FilterContext';
 import { fetchArticleList } from '../../../helpers/FetchArticleList';
+import { filterArticles } from '../../../helpers/FilterArticles';
 import { IArticle } from '../../../interfaces/Article';
 import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
 import ArticleItem from '../ArticlePreview/ArticlePreview';
 import NoArticlePage from '../NoArticlePage/NoArticlePage';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import './AllArticles.css';
+import './SearchResults.css';
 
-export default function AllArticles() {
+export default function SearchResults() {
+  const { filter } = useContext(FilterContext);
+  const [activeArticleList, setActiveArticleList] = useState<IArticle[]>([]);
   const [fullArticleList, setFullArticleList] = useState<IArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
@@ -15,6 +19,10 @@ export default function AllArticles() {
   useEffect(() => {
     fetchArticleList('all', setFullArticleList, setLoading, setError);
   }, []);
+
+  useEffect(() => {
+    filterArticles(filter, fullArticleList, setActiveArticleList);
+  }, [filter, fullArticleList]);
 
   if (loading) {
     return <ArticleFetchingAnimation />;
@@ -25,9 +33,9 @@ export default function AllArticles() {
   }
 
   return (
-    <main className="all-articles-list">
-      {fullArticleList.length === 0 && <NoArticlePage />}
-      {fullArticleList?.map((article) => (
+    <main className="search-results-list">
+      {activeArticleList.length === 0 && <NoArticlePage />}
+      {activeArticleList?.map((article) => (
         <div key={article._id.toString()} className="article-container">
           <ArticleItem articleData={article} />
         </div>

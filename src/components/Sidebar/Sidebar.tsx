@@ -1,5 +1,4 @@
 import React from 'react';
-import { ITag } from '../../interfaces/Tag';
 import ClearSearch from './ClearSearch/ClearSearch';
 import SearchSection from './SearchSection/SearchSection';
 import './Sidebar.css';
@@ -7,23 +6,17 @@ import SocialLinks from './SocialLinks/SocialLinks';
 import TagsSection from './TagsSection/TagsSection';
 import ThemeSwitch from './ThemeSwitch/ThemeSwitch';
 
-interface Props {
-  handleTagFilter: (tag: ITag) => void;
-  handleSearch: (query: string | null) => void;
-  filter: ITag | string | null;
-}
-
-export default function Sidebar({ handleTagFilter, handleSearch, filter }: Props) {
+export default function Sidebar() {
   return (
     <div className="sidebar">
       <section className="sidebar-section">
-        <SearchSection handleSearch={handleSearch} filter={filter} />
+        <SearchSection />
       </section>
       <section className="sidebar-section">
-        <TagsSection handleTagFilter={handleTagFilter} />
+        <TagsSection />
       </section>
       <section className="sidebar-section">
-        <ClearSearch handleSearch={handleSearch} />
+        <ClearSearch />
       </section>
       <div className="sidebar-theme-switch">
         <ThemeSwitch aria-label="Toggle theme" />

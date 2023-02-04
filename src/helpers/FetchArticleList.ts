@@ -1,6 +1,5 @@
 export const fetchArticleList = async (
   endpoint: string,
-  setActiveArticleList: Function,
   setFullArticleList: Function,
   setLoading: Function,
   setError: Function
@@ -10,7 +9,6 @@ export const fetchArticleList = async (
     const res = await fetch(`${serverURL}/api/articles/${endpoint}`, {});
     if (res.ok) {
       const data = await res.json();
-      setActiveArticleList(data.article_list);
       setFullArticleList(data.article_list);
     } else {
       throw new Error(`Server returned ${res.status} ${res.statusText}`);
