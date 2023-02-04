@@ -1,7 +1,17 @@
-import React from 'react';
+import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import { ViewType } from '../../../interfaces/customTypes';
 import './About.css';
 
-export default function About() {
+interface Props {
+  setCurrentView: Dispatch<SetStateAction<ViewType | null>>;
+}
+
+export default function About({ setCurrentView }: Props) {
+  useEffect(() => {
+    setCurrentView('About');
+    localStorage.setItem('currentView', 'About');
+  }, []);
+
   return (
     <main className="about-container">
       <h1>About this blog</h1>

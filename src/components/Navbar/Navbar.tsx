@@ -1,20 +1,13 @@
-import React, { Dispatch, SetStateAction, useContext } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
-import ActiveTagContext from '../../contexts/ActiveTagContext';
 import { ViewType } from '../../interfaces/customTypes';
 import './Navbar.css';
 
 interface Props {
   currentView: ViewType | null;
-  setCurrentView: Dispatch<SetStateAction<ViewType | null>>;
 }
 
-export default function Navbar({ currentView, setCurrentView }: Props) {
-  const handleSetCurrentView = (currentView: 'All' | 'Latest' | 'About' | 'Other') => {
-    setCurrentView(currentView);
-    localStorage.setItem('currentView', currentView);
-  };
-
+export default function Navbar({ currentView }: Props) {
   return (
     <nav aria-label="Main navigation" className="navbar">
       <h1 className="nav-title">./code/blog</h1>
@@ -23,10 +16,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
           <Link
             to="/all"
             className={`${currentView === 'All' ? 'active' : ''}`}
-            aria-current={currentView === 'All' ? 'page' : undefined}
-            onClick={() => {
-              handleSetCurrentView('All');
-            }}>
+            aria-current={currentView === 'All' ? 'page' : undefined}>
             All Articles
           </Link>
         </li>
@@ -34,10 +24,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
           <Link
             to="/latest"
             className={`${currentView === 'Latest' ? 'active' : ''}`}
-            aria-current={currentView === 'Latest' ? 'page' : undefined}
-            onClick={() => {
-              handleSetCurrentView('Latest');
-            }}>
+            aria-current={currentView === 'Latest' ? 'page' : undefined}>
             Latest Articles
           </Link>
         </li>
@@ -45,10 +32,7 @@ export default function Navbar({ currentView, setCurrentView }: Props) {
           <Link
             to="/about"
             className={`${currentView === 'About' ? 'active' : ''}`}
-            aria-current={currentView === 'About' ? 'page' : undefined}
-            onClick={() => {
-              handleSetCurrentView('About');
-            }}>
+            aria-current={currentView === 'About' ? 'page' : undefined}>
             About
           </Link>
         </li>
