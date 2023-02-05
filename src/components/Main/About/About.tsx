@@ -1,4 +1,5 @@
-import React, { Dispatch, SetStateAction, useEffect } from 'react';
+import React, { Dispatch, SetStateAction, useContext, useEffect } from 'react';
+import FilterContext from '../../../contexts/FilterContext';
 import { ViewType } from '../../../interfaces/customTypes';
 import './About.css';
 
@@ -7,9 +8,11 @@ interface Props {
 }
 
 export default function About({ setCurrentView }: Props) {
+  const { setFilter } = useContext(FilterContext);
   useEffect(() => {
     setCurrentView('About');
     localStorage.setItem('currentView', 'About');
+    setFilter(null);
   }, []);
 
   return (

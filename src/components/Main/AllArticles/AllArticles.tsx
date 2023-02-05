@@ -1,4 +1,5 @@
-import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
+import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
+import FilterContext from '../../../contexts/FilterContext';
 import { fetchArticleList } from '../../../helpers/FetchArticleList';
 import { IArticle } from '../../../interfaces/Article';
 import { ViewType } from '../../../interfaces/customTypes';
@@ -13,12 +14,14 @@ interface Props {
 }
 
 export default function AllArticles({ setCurrentView }: Props) {
+  const { setFilter } = useContext(FilterContext);
   const [fullArticleList, setFullArticleList] = useState<IArticle[]>([]);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
 
   useEffect(() => {
     fetchArticleList('all', setFullArticleList, setLoading, setError);
+    setFilter(null);
     setCurrentView('All');
     localStorage.setItem('currentView', 'All');
   }, []);
