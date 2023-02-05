@@ -7,12 +7,3 @@
   border-radius: 4px;
   font-size: 0.8em;
 }
-
-.not_found .backBtn {
-  align-self: flex-start;
-  color: var(--text_2);
-}
-
-.not_found .backBtn:hover {
-  color: var(--highlight);
-}

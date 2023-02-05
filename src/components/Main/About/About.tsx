@@ -1,6 +1,7 @@
 import React, { Dispatch, SetStateAction, useContext, useEffect } from 'react';
 import FilterContext from '../../../contexts/FilterContext';
 import { ViewType } from '../../../interfaces/customTypes';
+import BackButton from '../BackButton/BackButton';
 import './About.css';
 
 interface Props {
@@ -36,6 +37,7 @@ export default function About({ setCurrentView }: Props) {
         I hope you find my blog informative, engaging, and thought-provoking. I welcome your
         comments and feedback and look forward to hearing from you. Thank you for visiting my blog!
       </p>
+      <BackButton />
     </main>
   );
 }

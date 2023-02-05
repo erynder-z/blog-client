@@ -12,9 +12,9 @@ import { stripHtml } from 'string-strip-html';
 import Prism from 'prismjs';
 import '../../../libraries/prism-laserwave.css';
 import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
-import { FaArrowLeft } from 'react-icons/fa';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { ViewType } from '../../../interfaces/customTypes';
+import BackButton from '../BackButton/BackButton';
 
 interface Props {
   setCurrentView: Dispatch<SetStateAction<ViewType | null>>;
@@ -33,10 +33,6 @@ export default function ArticlePage({ setCurrentView }: Props) {
 
   const titleWithoutHTML = article?.title ? stripHtml(article.title).result : '';
   const decodedString = decode(article?.content);
-
-  const goToPreviousPage = () => {
-    navigate(-1);
-  };
 
   const getReadingTime = () => {
     const wpm = 250;
@@ -100,9 +96,7 @@ export default function ArticlePage({ setCurrentView }: Props) {
         <article className="article-content" aria-label="Article Content">
           {parse(decodedString)}
         </article>
-        <button className="backBtn" onClick={goToPreviousPage}>
-          <FaArrowLeft /> go back
-        </button>
+        <BackButton />
         <aside className="comments_section">
           {article && (
             <CommentsSection
