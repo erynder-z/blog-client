@@ -1,5 +1,6 @@
 import React from 'react';
 import ClearSearch from './ClearSearch/ClearSearch';
+import ReadRandomArticle from './ReadRandomArticle/ReadRandomArticle';
 import SearchSection from './SearchSection/SearchSection';
 import './Sidebar.css';
 import SocialLinks from './SocialLinks/SocialLinks';
@@ -18,6 +19,9 @@ export default function Sidebar() {
       <section className="sidebar-section">
         <ClearSearch />
       </section>
+      <div className="sidebar-random-article">
+        <ReadRandomArticle />
+      </div>
       <div className="sidebar-theme-switch">
         <ThemeSwitch aria-label="Toggle theme" />
       </div>
