@@ -26,6 +26,7 @@ export default function ArticlePage({ setCurrentView }: Props) {
   const id: string | undefined = params.id;
 
   const [article, setArticle] = useState<IArticle>();
+  const [readingTime, setReadingTime] = useState<number>(0);
   const [loading, setLoading] = useState(true);
   const [error, setError] = useState<Error | null>(null);
   const [refetchTrigger, setRefetchTrigger] = useState<boolean>(false);
@@ -35,6 +36,13 @@ export default function ArticlePage({ setCurrentView }: Props) {
 
   const goToPreviousPage = () => {
     navigate(-1);
+  };
+
+  const getReadingTime = () => {
+    const wpm = 250;
+    const words = decodedString.trim().split(/\s+/).length;
+    const time = Math.ceil(words / wpm);
+    setReadingTime(time);
   };
 
   useEffect(() => {
@@ -53,6 +61,7 @@ export default function ArticlePage({ setCurrentView }: Props) {
 
   useEffect(() => {
     Prism.highlightAll();
+    getReadingTime();
   }, [decodedString]);
 
   useEffect(() => {
@@ -87,6 +96,7 @@ export default function ArticlePage({ setCurrentView }: Props) {
             </li>
           ))}
         </ul>
+        <div className="reading_time">{readingTime} min read</div>
         <article className="article-content" aria-label="Article Content">
           {parse(decodedString)}
         </article>
