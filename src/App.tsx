@@ -1,17 +1,17 @@
 import React, { useContext, useState } from 'react';
 import { Routes, Route, Navigate } from 'react-router-dom';
-import './App.css';
+import ThemeContext from './contexts/ThemeContext';
+import { ViewType } from './interfaces/customTypes';
+import SearchResults from './components/Main/SearchResults/SearchResults';
 import Navbar from './components/Navbar/Navbar';
 import Sidebar from './components/Sidebar/Sidebar';
 import AllArticles from './components/Main/AllArticles/AllArticles';
 import LatestArticles from './components/Main/LatestArticles/LatestArticles';
 import About from './components/Main/About/About';
 import ArticlePage from './components/Main/ArticlePage/ArticlePage';
-import { FaAngleDoubleUp } from 'react-icons/fa';
-import { ViewType } from './interfaces/customTypes';
 import NotFoundPage from './components/Main/NotFoundPage/NotFoundPage';
-import ThemeContext from './contexts/ThemeContext';
-import SearchResults from './components/Main/SearchResults/SearchResults';
+import { FaAngleDoubleUp } from 'react-icons/fa';
+import './App.css';
 
 function App() {
   const { theme } = useContext(ThemeContext);

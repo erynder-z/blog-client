@@ -1,8 +1,8 @@
 import React, { Dispatch, SetStateAction, useContext, useEffect, useState } from 'react';
 import FilterContext from '../../../contexts/FilterContext';
-import { fetchArticleList } from '../../../helpers/FetchArticleList';
 import { IArticle } from '../../../interfaces/Article';
 import { ViewType } from '../../../interfaces/customTypes';
+import { fetchArticleList } from '../../../helpers/FetchArticleList';
 import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
 import ArticleItem from '../ArticlePreview/ArticlePreview';
 import NoArticlePage from '../NoArticlePage/NoArticlePage';

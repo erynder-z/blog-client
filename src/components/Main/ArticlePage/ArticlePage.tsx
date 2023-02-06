@@ -1,21 +1,21 @@
-import { format } from 'date-fns';
 import React, { Dispatch, SetStateAction, useEffect, useState } from 'react';
-import { decode } from 'html-entities';
-import parse from 'html-react-parser';
 import { useNavigate, useParams } from 'react-router-dom';
-import { IArticle } from '../../../interfaces/Article';
-import { ITag } from '../../../interfaces/Tag';
-import CommentsSection from '../CommentsSection/CommentsSection';
-import './ArticlePage.css';
-import { fetchArticleContent } from '../../../helpers/FetchArticleContent';
+import { format } from 'date-fns';
+import { decode } from 'html-entities';
 import { stripHtml } from 'string-strip-html';
 import Prism from 'prismjs';
-import '../../../libraries/prism-laserwave.css';
+import parse from 'html-react-parser';
+import { ViewType } from '../../../interfaces/customTypes';
+import { IArticle } from '../../../interfaces/Article';
+import { ITag } from '../../../interfaces/Tag';
+import { fetchArticleContent } from '../../../helpers/FetchArticleContent';
+import CommentsSection from '../CommentsSection/CommentsSection';
 import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchingAnimation';
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
-import { ViewType } from '../../../interfaces/customTypes';
 import BackButton from '../BackButton/BackButton';
 import { FaGlasses } from 'react-icons/fa';
+import '../../../libraries/prism-laserwave.css';
+import './ArticlePage.css';
 
 interface Props {
   setCurrentView: Dispatch<SetStateAction<ViewType | null>>;

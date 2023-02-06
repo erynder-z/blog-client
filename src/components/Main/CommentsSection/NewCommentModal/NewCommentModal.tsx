@@ -1,6 +1,6 @@
 import React, { useRef } from 'react';
-import { FaCheck, FaTimes } from 'react-icons/fa';
 import { useParams } from 'react-router-dom';
+import { FaCheck, FaTimes } from 'react-icons/fa';
 import './NewCommentModal.css';
 
 interface Props {

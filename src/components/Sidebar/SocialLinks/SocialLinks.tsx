@@ -1,6 +1,6 @@
 import React from 'react';
-import './SocialLinks.css';
 import { FaGithub, FaEnvelope } from 'react-icons/fa';
+import './SocialLinks.css';
 
 export default function SocialLinks() {
   const handleGithubClick = () => {

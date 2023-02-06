@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
-import './ReadRandomArticle.css';
-import { FaRandom } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
+import { FaRandom } from 'react-icons/fa';
+import './ReadRandomArticle.css';
 
 export default function ReadRandomArticle() {
   const [articleId, setArticleId] = useState<string | null>(null);

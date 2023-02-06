@@ -2,10 +2,10 @@ import React from 'react';
 import ClearSearch from './ClearSearch/ClearSearch';
 import ReadRandomArticle from './ReadRandomArticle/ReadRandomArticle';
 import SearchSection from './SearchSection/SearchSection';
-import './Sidebar.css';
 import SocialLinks from './SocialLinks/SocialLinks';
 import TagsSection from './TagsSection/TagsSection';
 import ThemeSwitch from './ThemeSwitch/ThemeSwitch';
+import './Sidebar.css';
 
 export default function Sidebar() {
   return (
