@@ -37,6 +37,26 @@ export default function About({ setCurrentView }: Props) {
         I hope you find my blog informative, engaging, and thought-provoking. I welcome your
         comments and feedback and look forward to hearing from you. Thank you for visiting my blog!
       </p>
+      <div>
+        The source-code for the frontend, backend as well as the CMS can be found on GitHub.
+        <ul>
+          <li>
+            <a href="https://github.com/erynder-z/blog-client" target="_blank" rel="noreferrer">
+              Blog-Client
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/erynder-z/blog-api" target="_blank" rel="noreferrer">
+              Blog-Rest-API
+            </a>
+          </li>
+          <li>
+            <a href="https://github.com/erynder-z/blog-admin" target="_blank" rel="noreferrer">
+              Blog-Content-Management-System
+            </a>
+          </li>
+        </ul>
+      </div>
       <BackButton />
     </main>
   );

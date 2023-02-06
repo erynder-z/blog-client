@@ -7,6 +7,10 @@
   font-size: 0.8em;
 }
 
-.about h1 {
-  font-size: 1.2em;
+.about-container h1 {
+  font-size: 1.5em;
+}
+
+.about-container ul {
+  list-style: none;
 }
