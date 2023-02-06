@@ -15,6 +15,7 @@ import ArticleFetchingAnimation from '../ArticleFetchingAnimation/ArticleFetchin
 import NotFoundPage from '../NotFoundPage/NotFoundPage';
 import { ViewType } from '../../../interfaces/customTypes';
 import BackButton from '../BackButton/BackButton';
+import { FaGlasses } from 'react-icons/fa';
 
 interface Props {
   setCurrentView: Dispatch<SetStateAction<ViewType | null>>;
@@ -92,7 +93,9 @@ export default function ArticlePage({ setCurrentView }: Props) {
             </li>
           ))}
         </ul>
-        <div className="reading_time">{readingTime} min read</div>
+        <div className="reading_time">
+          <FaGlasses /> {readingTime} min
+        </div>
         <article className="article-content" aria-label="Article Content">
           {parse(decodedString)}
         </article>

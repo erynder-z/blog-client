@@ -15,6 +15,8 @@
   --highlight: #d2008f;
   --searchbar: rgba(246, 246, 246, 0.1);
   --searchbar_focus: rgba(246, 246, 246, 0.2);
+  --link: #008fdb;
+  --link_hover: #006195;
 }
 
 .Matte {
@@ -34,6 +36,8 @@
   --highlight: #866c83;
   --searchbar: rgba(189, 195, 199, 0.1);
   --searchbar_focus: rgba(189, 195, 199, 0.2);
+  --link: #72c2c3;
+  --link_hover: #519d9e;
 }
 
 .Dark {
@@ -53,6 +57,8 @@
   --highlight: #ac6d74;
   --searchbar: rgba(202, 206, 216, 0.1);
   --searchbar_focus: rgba(202, 206, 216, 0.2);
+  --link: #72c373;
+  --link_hover: #2bde2e;
 }
 
 .Bright {
@@ -72,6 +78,8 @@
   --highlight: #f1d007;
   --searchbar: rgba(62, 62, 62, 0.1);
   --searchbar_focus: rgba(62, 62, 62, 0.2);
+  --link: #db2d20;
+  --link_hover: #7a0d06;
 }
 
 .Chameleon {
@@ -91,21 +99,12 @@
   --highlight: #689d69;
   --searchbar: rgba(106, 106, 106, 0.3);
   --searchbar_focus: rgba(106, 106, 106, 0.6);
-}
-
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
-}
-a:hover {
-  color: #535bf2;
+  --link: #458587;
+  --link_hover: #4aaeb1;
 }
 
 body {
   margin: 0;
-  /* display: flex;
-  place-items: center; */
   min-width: 320px;
   min-height: 100vh;
   background-color: var(--background_1);
@@ -144,11 +143,11 @@ button:focus-visible {
 
 a {
   font-weight: 500;
-  color: #646cff;
+  color: var(--link);
   text-decoration: inherit;
 }
 a:hover {
-  color: #535bf2;
+  color: var(--link_hover);
 }
 
 form {
@@ -280,12 +279,18 @@ textarea:focus {
 
   .sidebar_toggle {
     display: block;
-    height: 5rem;
+    height: 3rem;
+    padding: 1rem;
     color: var(--tag_background);
+    background-image: radial-gradient(circle at center, var(--text_3) 0%, rgba(0, 0, 0, 0) 66%);
+    border-radius: 50%;
     position: fixed;
     top: 87%;
-    right: 50%;
-    z-index: 10;
+    right: 0;
+    left: 0;
+    margin-left: auto;
+    margin-right: auto;
+    z-index: 100;
     transition: all 0.2s cubic-bezier(0.075, 0.82, 0.165, 1);
   }
 
