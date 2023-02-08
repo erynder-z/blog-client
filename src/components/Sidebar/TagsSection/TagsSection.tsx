@@ -14,7 +14,7 @@ export default function TagsSection() {
 
   const handleTagClick = (tag: ITag) => {
     if (tag !== filter) {
-      navigate('/search');
+      navigate('/code-blog/search');
     } else {
       setFilter(null);
       navigate(-1);

@@ -39,7 +39,7 @@ export default function ReadRandomArticle() {
   }, []);
 
   return (
-    <Link to={`/article/${articleId}`} className="randomArticleBtn" onClick={handleClick}>
+    <Link to={`/code-blog/article/${articleId}`} className="randomArticleBtn" onClick={handleClick}>
       Random article <FaRandom />
     </Link>
   );
