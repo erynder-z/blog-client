@@ -41,17 +41,17 @@ export default function About({ setCurrentView }: Props) {
         The source-code for the frontend, backend as well as the CMS can be found on GitHub.
         <ul>
           <li>
-            <a href="https://github.com/erynder-z/blog-client" target="_blank" rel="noreferrer">
+            <a href="https://github.com/erynder-z/code-blog" target="_blank" rel="noreferrer">
               Blog-Client
             </a>
           </li>
           <li>
-            <a href="https://github.com/erynder-z/blog-api" target="_blank" rel="noreferrer">
+            <a href="https://github.com/erynder-z/code-blog-api" target="_blank" rel="noreferrer">
               Blog-Rest-API
             </a>
           </li>
           <li>
-            <a href="https://github.com/erynder-z/blog-admin" target="_blank" rel="noreferrer">
+            <a href="https://github.com/erynder-z/code-blog-admin" target="_blank" rel="noreferrer">
               Blog-Content-Management-System
             </a>
           </li>
