@@ -86,7 +86,7 @@ export default function ArticlePage({ setCurrentView }: Props) {
         <h1 className="article_title" aria-label="Article Title">
           {titleWithoutHTML}
         </h1>
-        <ul className="tag-list" aria-label="Article Tags">
+        <ul className="article_tag-list" aria-label="Article Tags">
           {article?.tags?.map((tag: ITag) => (
             <li key={tag._id.toString()} className="tag-list-item">
               {tag.name}
