@@ -13,13 +13,6 @@ A blog client built with React and TypeScript that fetches data from a self-code
 - Five different themes
 - Commenting on each article
 
-## Installation
-
-1.  Clone the repository to your local machine: `git clone https://github.com/erynder-z/code-blog.git`
-2.  Navigate to the project directory: `cd code-blog`
-3.  Install the required dependencies: `npm install`
-4.  Start the development server: `npm run dev`
-
 ## API
 
 The blog client fetches data from a self-coded RESTful blog API. The source code for the API can be found at [https://github.com/erynder-z/code-blog-api](https://github.com/erynder-z/code-blog-api).
@@ -27,6 +20,13 @@ The blog client fetches data from a self-coded RESTful blog API. The source code
 ## Content Management System
 
 The blog can be manages from a self-coded content management system. The source code for the CMS can be found at [https://github.com/erynder-z/code-blog-admin](https://github.com/erynder-z/code-blog-admin).
+
+## Installation
+
+1.  Clone the repository to your local machine: `git clone https://github.com/erynder-z/code-blog.git`
+2.  Navigate to the project directory: `cd code-blog`
+3.  Install the required dependencies: `npm install`
+4.  Start the development server: `npm run dev`
 
 ## Acknowledgments
 
