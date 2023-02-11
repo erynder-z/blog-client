@@ -43,3 +43,15 @@ The blog can be manages from a self-coded content management system. The source 
 - [EsLint](https://eslint.org/) - A linter for JavaScript and TypeScript code.
 - [Prettier](https://prettier.io/) - An opinionated code formatter for JavaScript and TypeScript code.
 - [Vite](https://vite.dev/) - A fast build tool for JavaScript and TypeScript projects.
+
+## Screenshots
+
+### Desktop
+
+<img src="src/assets/screenshot_1.png" alt="screenshot"/>
+<img src="src/assets/screenshot_2.png" alt="screenshot"/>
+
+### Mobile
+
+<img src="src/assets/screenshot_3.png" alt="screenshot"/>
+<img src="src/assets/screenshot_4.png" alt="screenshot"/>
