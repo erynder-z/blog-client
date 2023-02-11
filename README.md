@@ -19,7 +19,7 @@ The blog client fetches data from a self-coded RESTful blog API. The source code
 
 ## Content Management System
 
-The blog can be manages from a self-coded content management system. The source code for the CMS can be found at [https://github.com/erynder-z/code-blog-admin](https://github.com/erynder-z/code-blog-admin).
+The blog can be managed from a self-coded content management system. The source code for the CMS can be found at [https://github.com/erynder-z/code-blog-admin](https://github.com/erynder-z/code-blog-admin).
 
 ## Installation
 
