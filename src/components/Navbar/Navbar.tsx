@@ -10,7 +10,9 @@ interface Props {
 export default function Navbar({ currentView }: Props) {
   return (
     <nav aria-label="Main navigation" className="navbar">
-      <h1 className="nav-title">./code/blog</h1>
+      <h1 className="nav-title">
+        <span>./</span>code<span>/</span>blog
+      </h1>
       <ul className="nav-list">
         <li className="nav-list-item">
           <Link
